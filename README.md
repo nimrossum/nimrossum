@@ -6,15 +6,15 @@ I'm Jonas Nim Røssum
 
 ## [About me](#about-me)
 
-🕸️ I started programming in 2010.
+🌍 I live in Frederiksberg, Denmark 🇩🇰
 
 📚 I am currently studying a MSc. in Computer Science at the [IT University of Copenhagen](https://en.itu.dk) (2023 - 2026)
 
-🇨🇿 I Studied a semester abroad at Charles University in Spring 2024
-
 ✅ I have completed a BSc. in Software Development at the [IT University of Copenhagen](https://en.itu.dk) (2019)
 
-🌍 I live in Frederiksberg, Denmark 🇩🇰
+🇨🇿 I studied a semester abroad at Charles University in Spring 2024
+
+🕸️ I started programming in 2010.
 
 ❓ Ask me about [React](https://react.dev/), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [Git](https://git-scm.com/)
 
@@ -39,5 +39,6 @@ This is an incomplete list of projects that I have either collaborated on or mad
 
 ## [Say hi!](#say-hi)
 
+🐙 [github.com/nimrossum](https://github.com/nimrossum)  &middot;
 🦋 [bsky.app/profile/nimrossum.com](https://bsky.app/profile/nimrossum.com) &middot;
-🐙 [github.com/nimrossum](https://github.com/nimrossum)
+💼 [linkedin.com/in/jonasnimrossum](https://www.linkedin.com/in/jonasnimrossum)
