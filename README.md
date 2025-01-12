@@ -10,7 +10,7 @@ I'm Jonas Nim Røssum
 
 📚 I am currently studying a MSc. in Computer Science at the [IT University of Copenhagen](https://en.itu.dk) (2023 - 2026)
 
-✅ I have completed a BSc. in Software Development at the [IT University of Copenhagen](https://en.itu.dk) (2019)
+✅ I have completed a BSc. in Software Development at the [IT University of Copenhagen](https://en.itu.dk) (2019 - 2022)
 
 🇨🇿 I studied a semester abroad at Charles University in Spring 2024
 
