@@ -1,9 +1,5 @@
 # Hello there 👋
 
-![Jonas Nim Røssum](https://github.com/nimrossum.png)
-
-I'm Jonas Nim Røssum
-
 ## [About me](#about-me)
 
 🌍 I live in Frederiksberg, Denmark 🇩🇰
