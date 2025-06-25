@@ -12,7 +12,7 @@
 
 🕸️ I started programming in 2010.
 
-❓ Ask me about [React](https://react.dev/), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [Git](https://git-scm.com/)
+❓ Ask me about [TypeScript](https://www.typescriptlang.org/), [React](https://react.dev/), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [Git](https://git-scm.com/)
 
 ## [Projects](#projects)
 
