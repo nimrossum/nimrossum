@@ -8,7 +8,7 @@
 
 ✅ I have completed a BSc. in Software Development at the [IT University of Copenhagen](https://en.itu.dk) (2019 - 2022)
 
-🇨🇿 I studied a semester abroad at Charles University in Spring 2024
+🇨🇿 I studied a semester abroad at [Charles University](https://cuni.cz/UKEN-1.html) in Spring 2024
 
 🕸️ I started programming in 2010.
 
