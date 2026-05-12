@@ -1,38 +1,42 @@
-# Hello there 👋
+# Jonas Nim Røssum
 
-## [About me](#about-me)
+<a href="https://jonas.nimrossum.com"><img src="https://img.shields.io/badge/Website-jonas.nimrossum.com-10B981?style=for-the-badge" alt="Website" /></a>
+<a href="https://www.linkedin.com/in/jonasnimrossum/"><img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn" /></a>
+<a href="mailto:hello@nimrossum.com"><img src="https://img.shields.io/badge/Email-hello@nimrossum.com-stone?style=for-the-badge&logo=minutemailer" alt="Email" /></a>
 
-📚 I am currently studying a MSc. in Computer Science at the [IT University of Copenhagen](https://en.itu.dk) (2023 - 2026)
+**Product-minded Full Stack Developer focused on clear UX and data-heavy web interfaces.**
+_Based in Copenhagen | Coding since 2010 | 4 years professional experience_
 
-✅ I have completed a BSc. in Software Development at the [IT University of Copenhagen](https://en.itu.dk) (2019 - 2022)
+I like tight feedback loops and shipping useful tools. My expertise lies primarily in **TypeScript and React**, with experience spanning web applications, data visualization, and machine learning.
 
-🇨🇿 I studied a semester abroad at [Charles University](https://cuni.cz/UKEN-1.html) in Spring 2024
+## 🎓 Background
 
-🕸️ I started programming in 2010.
+- **Education:** MSc. in Computer Science (IT University of Copenhagen)
+- **Currently:** Thesis Researcher & Lead Maintainer at [Git Truck](https://github.com/git-truck/git-truck)
 
-❓ Ask me about [TypeScript](https://www.typescriptlang.org/), [React](https://react.dev/), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [Git](https://git-scm.com/)
+---
 
-## [Projects](#projects)
+## 💻 Selected Open Source & Toy Projects
 
-This is an incomplete list of projects that I have either collaborated on or made myself.
-<br/><br/>
+| Project                                                    | Description                                                                 | Tech                                  |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| 🚛 **[Git Truck](https://github.com/git-truck/git-truck)** | Next-gen Git repository visualization tool. Lead maintainer.                | TypeScript, React, D3                 |
+| 🧶 **[Pind](https://pind.nimrossum.com/)**                 | Knitting project helper for tracking progress.                              | TypeScript, Next.js, Prisma, Tailwind |
+| 🎛️ **[Takt](https://takt.nimrossum.com/)**                 | Browser-based beat-maker featuring an intuitive step sequencer.             | React                                 |
+| 🧍 **[Stræk](https://straek.nimrossum.com/)**              | Interactive stretching companion app providing guided flows and timers.     | Vue 3, Tailwind                       |
+| 🟩 **[Klods](https://klods.nimrossum.com/)**               | A Tetris-inspired block puzzle game.                                        | React                                 |
+| 🗺 **[Bong Maps](https://github.com/bong-inc/bong-maps)**  | Open-source desktop GIS mapping application with fast OSM rendering.        | Java, JavaFX, GIS                     |
+| 🐣 **[Pollo Pollo](https://pollopollo.org/)**              | Decentralized charitable platform (Software Dev & CI Coordinator).          | React, ASP.NET                        |
+| 🐒 **[Fruit Rush](https://fruit-rush.nimrossum.com/)**     | Browser-based local multiplayer action game with native controller support. | React                                 |
 
-| &nbsp; | Year | Project                                                 | Description                                              |
-| ------ | ---- | ------------------------------------------------------- | -------------------------------------------------------- |
-| 🎛️     | 2023 | [Takt](https://takt.nimrossum.com/)                     | A simple React app for making beats                      |
-| 🧍     | 2023 | [Stræk](https://straek.nimrossum.com/)                  | A simple Vue 3 app helping you with stretching exercises |
-| 🧶     | 2023 | [Pind](https://pind.nimrossum.com/)                     | Knitting project helper                                  |
-| 🟩     | 2022 | [Klods](https://klods.nimrossum.com/)                   | Block puzzle game clone                                  |
-| 🚛     | 2022 | [Git Truck](https://git-truck.github.io/git-truck/GitTruckTeaser)    | Git repository visualization tool                        |
-| 🔠     | 2022 | [Ordle](https://ordle.nimrossum.com/)                   | Danish Wordle clone                                      |
-| 🐒     | 2021 | [Fruit Rush](https://fruit-rush.nimrossum.com/)         | Browser based multiplayer game                           |
-| 🦅     | 2021 | [Dyk](https://dyk.nimrossum.com/)                       | Browser based singleplayer game                          |
-| 🗺      | 2020 | [Bong Maps](https://github.com/bong-inc/bong-maps)      | Open source mapping software                             |
-| 🤖     | 2018 | [Ortomatic](https://apps.dronekompagniet.dk/ortomatic/) | Aerial mapping software                                  |
-| ⏰     | 2017 | [Tomato Hours](https://tomato-hours.nimrossum.com/)     | Time tracking app                                        |
+## 🗣️ Talks & Publications
 
-## [Say hi!](#say-hi)
+- **[Mindster Booster Talk](https://docs.google.com/presentation/d/1Asu-LneYJ5lT2-fgLgeJssDoEicGKCLJPAsB-_B0FIk/edit?usp=sharing)** — Technical deep-dive on using spring animations in React to power the Git Truck visualization engine. _(2023)_
+- **[React Meetup Copenhagen](https://docs.google.com/presentation/d/1Y4F7MvAmzfMUkTKEx86XEpJLnhaboOW9O-OHNxumQRM/edit?usp=sharing)** — Presented on integrating D3 data visualizations with React and animating them efficiently. _(2022)_
+- **[IEEE VISSOFT 2022](<https://github.com/git-truck/papers/blob/master/Hierarchy%20Oriented%20Visualizationof%20Git%20Repository%20Evolution%20(VISSOFT22).pdf>)** — Co-authored & published research on polymetric visualization of Git repository structures. _(2022)_
 
-🐙 [github.com/nimrossum](https://github.com/nimrossum)  &middot;
-🦋 [bsky.app/profile/nimrossum.com](https://bsky.app/profile/nimrossum.com) &middot;
-💼 [linkedin.com/in/jonasnimrossum](https://www.linkedin.com/in/jonasnimrossum)
+---
+
+<p align="center">
+  <i>Check out my full interactive portfolio and printable CV at <a href="https://jonas.nimrossum.com">jonas.nimrossum.com</a></i>
+</p>

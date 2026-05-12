@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: hsl(from var(--color-emerald-700) h s calc(l * 0.4));
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-primary: oklch(1 0.0232 47.98);
+  --color-primary-100: oklch(from var(--color-primary) calc(l * 0.1) c h);
+  --color-primary-200: oklch(from var(--color-primary) calc(l * 0.2) c h);
+  --color-primary-300: oklch(from var(--color-primary) calc(l * 0.3) c h);
+  --color-primary-400: oklch(from var(--color-primary) calc(l * 0.4) c h);
+  --color-primary-500: oklch(from var(--color-primary) calc(l * 0.5) c h);
+  --color-primary-600: oklch(from var(--color-primary) calc(l * 0.6) c h);
+  --color-primary-700: oklch(from var(--color-primary) calc(l * 0.7) c h);
+  --color-primary-800: oklch(from var(--color-primary) calc(l * 0.8) c h);
+  --color-primary-900: oklch(from var(--color-primary) calc(l * 0.9) c h);
+
+  --color-main: oklch(from var(--color-gray-50) l c h / 100%);
+  --color-aside: oklch(from var(--color-emerald-950) l c h);
+
+  --animation-hover: hover 5s ease-in-out infinite;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+  background: var(--background);
+}
+
+@keyframes hover {
+  0%,
+  100% {
+    translate-y: -25%;
+  }
+  50% {
+    translate-y: 0;
+  }
+}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

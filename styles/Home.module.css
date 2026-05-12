@@ -1,7 +1,0 @@
-.root {
-  box-sizing: border-box;
-  display: grid;
-  padding: var(--u2) var(--u2);
-  align-items: center;
-  justify-content: center;
-}
