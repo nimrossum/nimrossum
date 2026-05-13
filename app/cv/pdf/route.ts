@@ -19,7 +19,11 @@ async function getPdfFromBlobCache(
 ): Promise<Uint8Array | null> {
   try {
     const blob = await get(pdfCachePath, { access: "private" })
-    if (!blob || blob.statusCode !== 200) {
+    if (!blob) {
+      return null
+    }
+
+    if (blob.statusCode !== 200) {
       return null
     }
 
