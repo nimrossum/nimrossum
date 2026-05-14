@@ -271,7 +271,7 @@ export default function Resume() {
           target="_blank"
           prefetch="auto"
           href="/cv/pdf"
-          className="flex w-fit mx-auto items-center gap-2 rounded px-3 py-2 font-bold text-emerald-400 transition-colors hover:bg-emerald-500 hover:text-white"
+          className="mx-auto flex w-fit items-center gap-2 rounded px-3 py-2 font-bold text-emerald-400 transition-colors hover:bg-emerald-500 hover:text-white"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
@@ -279,115 +279,115 @@ export default function Resume() {
         </Link>
       </div>
       <div className="mx-auto grid max-w-[calc(250px+60ch)] grid-flow-col grid-cols-[1fr_60ch] grid-rows-[150px_1fr] rounded-lg border-emerald-600 not-print:border print:inset-0 print:h-[200dvh]">
-      <div className="hidden print:fixed print:top-0 print:right-0 print:left-[14rem] print:block print:h-[2cm]" />
+        <div className="hidden print:fixed print:top-0 print:right-0 print:left-[14rem] print:block print:h-[2cm]" />
 
-      <header className="relative col-span-2 grid grid-flow-col grid-cols-subgrid items-center rounded-t-lg bg-emerald-950 px-4">
-        <Image
-          src={profile}
-          // src="https://avatars.githubusercontent.com/u/1959615?v=4"
-          alt="Avatar"
-          width="200"
-          height="200"
-          loading="eager"
-          priority
-          className={cn(
-            "absolute bottom-0 left-4 z-10 w-[200px] translate-y-1/2 rounded-full border-2 border-emerald-50",
-          )}
-        />
-        <div />
-        <div>
-          <h1 className="text-center text-5xl text-emerald-50">
-            Jonas Nim Røssum
-          </h1>
-          <p className="mx-auto mt-2 w-[200px] text-center text-sm font-bold tracking-wide text-pretty text-emerald-50/70 uppercase">
-            Full Stack Developer
-          </p>
-        </div>
-      </header>
+        <header className="relative col-span-2 grid grid-flow-col grid-cols-subgrid items-center rounded-t-lg bg-emerald-950 px-4">
+          <Image
+            src={profile}
+            // src="https://avatars.githubusercontent.com/u/1959615?v=4"
+            alt="Avatar"
+            width="200"
+            height="200"
+            loading="eager"
+            priority
+            className={cn(
+              "absolute bottom-0 left-4 z-10 w-[200px] translate-y-1/2 rounded-full border-2 border-emerald-50",
+            )}
+          />
+          <div />
+          <div>
+            <h1 className="text-center text-5xl text-emerald-50">
+              Jonas Nim Røssum
+            </h1>
+            <p className="mx-auto mt-2 w-[200px] text-center text-sm font-bold tracking-wide text-pretty text-emerald-50/70 uppercase">
+              Full Stack Developer
+            </p>
+          </div>
+        </header>
 
-      <aside className="flex flex-col bg-emerald-950 p-4 pt-[100px] text-stone-50 shadow-sm not-print:rounded-bl-lg lg:sticky lg:max-w-xs lg:rounded-tr-none lg:rounded-bl-lg">
-        <section className="flex flex-col gap-3">
-          <section className="mt-8 flex flex-col">
-            <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
-              Contact
-            </h2>
-            <section className="grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-3">
-              <ContactEntry
-                content="hello@nimrossum.com"
-                url="mailto:hello@nimrossum.com"
-                iconFn={AtSymbolIcon}
-              />
-              <ContactEntry
-                content="in/jonasnimrossum"
-                url="https://www.linkedin.com/in/jonasnimrossum/"
-                iconFn={BriefcaseIcon}
-                rel="me" // semantic hint for identity link
-              />
-              <ContactEntry
-                className="not-print:hidden"
-                content="+45 52 25 13 37"
-                url="tel:+4552251337"
-                iconFn={PhoneIcon}
-              />
+        <aside className="flex flex-col bg-emerald-950 p-4 pt-[100px] text-stone-50 shadow-sm not-print:rounded-bl-lg lg:sticky lg:max-w-xs lg:rounded-tr-none lg:rounded-bl-lg">
+          <section className="flex flex-col gap-3">
+            <section className="mt-8 flex flex-col">
+              <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
+                Contact
+              </h2>
+              <section className="grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-3">
+                <ContactEntry
+                  content="hello@nimrossum.com"
+                  url="mailto:hello@nimrossum.com"
+                  iconFn={AtSymbolIcon}
+                />
+                <ContactEntry
+                  content="in/jonasnimrossum"
+                  url="https://www.linkedin.com/in/jonasnimrossum/"
+                  iconFn={BriefcaseIcon}
+                  rel="me" // semantic hint for identity link
+                />
+                <ContactEntry
+                  className="not-print:hidden"
+                  content="+45 52 25 13 37"
+                  url="tel:+4552251337"
+                  iconFn={PhoneIcon}
+                />
+              </section>
+            </section>
+            <section className="mt-8 flex flex-col">
+              <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
+                Languages
+              </h2>
+              <section className="relative grid grid-cols-2 place-content-between gap-2 opacity-70">
+                <div>Danish</div>
+                <div>Maternal</div>
+                <div>English</div>
+                <div>Fluent</div>
+              </section>
             </section>
           </section>
-          <section className="mt-8 flex flex-col">
-            <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
-              Languages
-            </h2>
-            <section className="relative grid grid-cols-2 place-content-between gap-2 opacity-70">
-              <div>Danish</div>
-              <div>Maternal</div>
-              <div>English</div>
-              <div>Fluent</div>
-            </section>
-          </section>
-        </section>
-      </aside>
+        </aside>
 
-      <main className="relative flex flex-col gap-10 bg-stone-300 p-6 text-gray-950 print:rounded-tl-xl not-print:rounded-br-lg marker:text-emerald-800 print:p-4">
-        {Object.entries(sections).map(([sectionHeading, entries], i) => (
-          <section
-            key={sectionHeading}
-            className="relative flex flex-col gap-2"
-          >
-            <SectionHeading title={sectionHeading}>
-              {i === 0 ? (
-                <div className="mr-2">
-                  <a
-                    target="_blank"
-                    href="https://jonas.nimrossum.com/cv"
-                    className="-mr-2 flex w-max items-center gap-1 py-2 pl-2 font-bold text-emerald-950 not-print:hidden"
-                    title="Live version"
-                  >
-                    <ArrowTopRightOnSquareIcon className="size-6" />
-                    Live version
-                  </a>
-                </div>
-              ) : null}
-            </SectionHeading>
-            <section className="flex flex-col gap-6 pl-4">
-              {entries.map((item, index) => (
-                <div key={index}>
-                  <EntryHeading
-                    className={
-                      i === 1 && index === 1 ? "break-before-page" : ""
-                    }
-                    title={item.title}
-                    institution={item.institution}
-                    url={item.url}
-                    startDate={item.startYear}
-                    endDate={item.endYear}
-                  />
-                  <EntryTech tech={item.tech} />
-                  <div className="text-gray-800">{item.description}</div>
-                </div>
-              ))}
+        <main className="relative flex flex-col gap-10 bg-stone-300 p-6 text-gray-950 not-print:rounded-br-lg marker:text-emerald-800 print:rounded-tl-xl print:p-4">
+          {Object.entries(sections).map(([sectionHeading, entries], i) => (
+            <section
+              key={sectionHeading}
+              className="relative flex flex-col gap-2"
+            >
+              <SectionHeading title={sectionHeading}>
+                {i === 0 ? (
+                  <div className="mr-2">
+                    <a
+                      target="_blank"
+                      href="https://jonas.nimrossum.com/cv"
+                      className="-mr-2 flex w-max items-center gap-1 py-2 pl-2 font-bold text-emerald-950 not-print:hidden"
+                      title="Live version"
+                    >
+                      <ArrowTopRightOnSquareIcon className="size-6" />
+                      Live version
+                    </a>
+                  </div>
+                ) : null}
+              </SectionHeading>
+              <section className="flex flex-col gap-6 pl-4">
+                {entries.map((item, index) => (
+                  <div key={index}>
+                    <EntryHeading
+                      className={
+                        i === 1 && index === 1 ? "break-before-page" : ""
+                      }
+                      title={item.title}
+                      institution={item.institution}
+                      url={item.url}
+                      startDate={item.startYear}
+                      endDate={item.endYear}
+                    />
+                    <EntryTech tech={item.tech} />
+                    <div className="text-gray-800">{item.description}</div>
+                  </div>
+                ))}
+              </section>
             </section>
-          </section>
-        ))}
-      </main>
-    </div>
+          ))}
+        </main>
+      </div>
     </>
   )
 }
@@ -402,10 +402,9 @@ function SectionHeading({
   return (
     <h2 className="flex items-center gap-1">
       <div
-        className={cn(
-          "border-t-2 border-current",
-          children ? "flex-3" : "flex-1",
-        )}
+        className={cn("flex-1 border-t-2 border-current", {
+          "print:flex-3": children,
+        })}
       />
       <div className="text-lg font-bold tracking-widest text-emerald-950 uppercase">
         {title}
