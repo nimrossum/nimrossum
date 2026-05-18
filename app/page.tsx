@@ -262,7 +262,7 @@ export default function Home() {
       title: "Tomato Hours",
       role: "React / Redux / Material Design",
       body: "A Pomodoro timer application focused on simplicity and hourly salary tracking.",
-      href: "https://tomatohours.nimrossum.com/",
+      href: "https://tomato-hours.nimrossum.com/",
     },
   ]
 
