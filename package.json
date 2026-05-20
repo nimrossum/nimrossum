@@ -2,6 +2,9 @@
   "name": "cv",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "bunx portless cv next dev --turbopack",
     "build": "next build --turbopack",
@@ -11,7 +14,7 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@mdi/js": "^7.4.47",
-    "@vercel/blob": "^2.3.3",
+    "@vercel/blob": "2.3.3",
     "@vercel/functions": "^3.1.4",
     "clsx": "^2.1.1",
     "i": "^0.3.7",
