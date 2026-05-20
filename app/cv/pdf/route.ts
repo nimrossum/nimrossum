@@ -67,7 +67,7 @@ async function getFallbackPdfResponse(
 ): Promise<Response | null> {
   const fallbackPdfUrls = [
     process.env.CV_FALLBACK_PDF_URL,
-    new URL("/Jonas Nim Røssum.pdf", request.url).toString(),
+    new URL("/cv-fallback.pdf", request.url).toString(),
     new URL("/cv.pdf", request.url).toString(),
   ].filter((url): url is string => Boolean(url))
 
