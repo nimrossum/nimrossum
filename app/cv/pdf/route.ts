@@ -15,14 +15,18 @@ function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
 }
 
 function getPdfSourceUrl(request: Request): string {
-  const override = process.env.CV_PDF_SOURCE_URL
-  if (override) {
-    return new URL("/cv", override).toString()
-  }
+  try {
+    const override = process.env.CV_PDF_SOURCE_URL
+    if (override) {
+      return new URL("/cv", override).toString()
+    }
 
-  const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  if (productionDomain) {
-    return new URL("/cv", `https://${productionDomain}`).toString()
+    const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    if (productionDomain) {
+      return new URL("/cv", `https://${productionDomain}`).toString()
+    }
+  } catch {
+    // Fall through to request URL when env configuration is invalid
   }
 
   return new URL("/cv", request.url).toString()
