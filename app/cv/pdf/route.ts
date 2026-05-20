@@ -16,20 +16,20 @@ function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
 
 async function getPdfFromBlobCache(
   pdfCachePath: string,
-): Promise<Uint8Array | null> {
+): Promise<Buffer | null> {
   try {
     const blob = await get(pdfCachePath, { access: "private" })
     if (!blob) {
       return null
     }
 
-    return new Uint8Array(await new Response(blob.stream).arrayBuffer())
+    return Buffer.from(await new Response(blob.stream).arrayBuffer())
   } catch {
     return null
   }
 }
 
-async function putPdfInBlobCache(pdfCachePath: string, pdf: Uint8Array) {
+async function putPdfInBlobCache(pdfCachePath: string, pdf: Buffer) {
   try {
     await put(pdfCachePath, pdf, {
       access: "private",
@@ -42,8 +42,10 @@ async function putPdfInBlobCache(pdfCachePath: string, pdf: Uint8Array) {
   }
 }
 
-function createPdfResponse(pdf: Uint8Array) {
-  return new Response(pdf, { headers: PDF_HEADERS })
+function createPdfResponse(pdf: Buffer) {
+  const body = new Uint8Array(pdf.length)
+  body.set(pdf)
+  return new Response(body, { headers: PDF_HEADERS })
 }
 
 async function getFallbackPdfResponse(
@@ -61,7 +63,7 @@ async function getFallbackPdfResponse(
         continue
       }
 
-      const pdf = new Uint8Array(await response.arrayBuffer())
+      const pdf = Buffer.from(await response.arrayBuffer())
       return createPdfResponse(pdf)
     } catch {
       // Keep trying other fallback locations
@@ -73,7 +75,7 @@ async function getFallbackPdfResponse(
 
 async function renderPdfWithPlaywright(
   sourceUrl: string,
-): Promise<Uint8Array | null> {
+): Promise<Buffer | null> {
   try {
     const { chromium } = await import("playwright")
     const browser = await chromium.launch()
@@ -89,7 +91,7 @@ async function renderPdfWithPlaywright(
 
     await browser.close()
 
-    return new Uint8Array(pdf)
+    return Buffer.from(pdf)
   } catch {
     // Playwright not available
     return null
@@ -127,7 +129,7 @@ async function renderPdfWithBrowserless(
     })
   }
 
-  const body = new Uint8Array(await response.arrayBuffer())
+  const body = Buffer.from(await response.arrayBuffer())
 
   return new Response(body, {
     headers: PDF_HEADERS,
@@ -181,7 +183,7 @@ export async function GET(request: Request) {
     return (await getFallbackPdfResponse(request)) ?? browserlessResponse
   }
 
-  const pdf = new Uint8Array(await browserlessResponse.arrayBuffer())
+  const pdf = Buffer.from(await browserlessResponse.arrayBuffer())
   if (pdfCachePath) {
     await putPdfInBlobCache(pdfCachePath, pdf)
   }
