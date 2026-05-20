@@ -41,6 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
-public/cv.pdf
 
 .env*.local
