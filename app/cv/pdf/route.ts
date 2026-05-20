@@ -14,6 +14,20 @@ function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
   return `cv/pdf/${gitHistoryHash}.pdf`
 }
 
+function getPdfSourceUrl(request: Request): string {
+  const override = process.env.CV_PDF_SOURCE_URL
+  if (override) {
+    return new URL("/cv", override).toString()
+  }
+
+  const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  if (productionDomain) {
+    return new URL("/cv", `https://${productionDomain}`).toString()
+  }
+
+  return new URL("/cv", request.url).toString()
+}
+
 async function getPdfFromBlobCache(
   pdfCachePath: string,
 ): Promise<Buffer | null> {
@@ -53,6 +67,7 @@ async function getFallbackPdfResponse(
 ): Promise<Response | null> {
   const fallbackPdfUrls = [
     process.env.CV_FALLBACK_PDF_URL,
+    new URL("/Jonas Nim Røssum.pdf", request.url).toString(),
     new URL("/cv.pdf", request.url).toString(),
   ].filter((url): url is string => Boolean(url))
 
@@ -137,7 +152,7 @@ async function renderPdfWithBrowserless(
 }
 
 export async function GET(request: Request) {
-  const sourceUrl = new URL("/cv", request.url).toString()
+  const sourceUrl = getPdfSourceUrl(request)
   const isProduction = process.env.VERCEL === "1"
   const pdfCachePath = getPdfCachePath(process.env.VERCEL_GIT_COMMIT_SHA)
 
