@@ -197,6 +197,7 @@ export async function GET(request: Request) {
   )
 
   if (!browserlessResponse.ok) {
+    console.error("Browserless rendering failed with status", browserlessResponse.status)
     return (await getFallbackPdfResponse(request)) ?? browserlessResponse
   }
 
