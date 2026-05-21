@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic"
 
 const PDF_HEADERS = {
   "Content-Type": "application/pdf",
-  "Content-Disposition": 'inline; filename="Jonas Nim Røssum.pdf"',
+  "Content-Disposition": 'inline; filename="Jonas Nim Røssum - CV.pdf"',
 }
 
 function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
@@ -71,7 +71,6 @@ async function getFallbackPdfResponse(
 ): Promise<Response | null> {
   const fallbackPdfUrls = [
     process.env.CV_FALLBACK_PDF_URL,
-    new URL("/cv-fallback.pdf", request.url).toString(),
     new URL("/cv.pdf", request.url).toString(),
   ].filter((url): url is string => Boolean(url))
 
@@ -104,7 +103,6 @@ async function renderPdfWithPlaywright(
 
     const pdf = await page.pdf({
       format: "A4",
-      displayHeaderFooter: false,
       printBackground: true,
     })
 

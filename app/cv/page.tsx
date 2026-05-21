@@ -209,30 +209,30 @@ const sections: Record<string, Entry[]> = {
     },
   ],
   Publications: [
-    {
-      title: "Git-Truck: Advanced Contributor Exploration",
-      hoverTitle: "Click to view the publication",
-      institution: (
-        <>
-          IEEE VISSOFT 2026 &mdash; 14th Working Conference on Software
-          Visualization
-        </>
-      ),
-      tech: [],
-      url: "https://doi.org/10.1109/VISSOFT55257.2022.00021",
-      startYear: "2026",
-      endYear: "2026",
-      description: (
-        <ul className="ml-0 flex list-disc flex-col gap-2 marker:text-emerald-800">
-          <li>
-            Co-authored research on advanced contributor exploration of Git
-            repositories
-          </li>
-          <li>Focused on contributor footprints</li>
-          {/* <li>Presented findings at IEEE VISSOFT 2026</li> */}
-        </ul>
-      ),
-    },
+    // {
+    //   title: "Git-Truck: Advanced Contributor Exploration",
+    //   hoverTitle: "Click to view the publication",
+    //   institution: (
+    //     <>
+    //       IEEE VISSOFT 2026 &mdash; 14th Working Conference on Software
+    //       Visualization
+    //     </>
+    //   ),
+    //   tech: [],
+    //   url: "https://doi.org/10.1109/VISSOFT55257.2022.00021",
+    //   startYear: "2026",
+    //   endYear: "2026",
+    //   description: (
+    //     <ul className="ml-0 flex list-disc flex-col gap-2 marker:text-emerald-800">
+    //       <li>
+    //         Co-authored research on advanced contributor exploration of Git
+    //         repositories
+    //       </li>
+    //       <li>Focused on contributor footprints</li>
+    //       {/* <li>Presented findings at IEEE VISSOFT 2026</li> */}
+    //     </ul>
+    //   ),
+    // },
     {
       title:
         "Git-Truck: Hierarchy-Oriented Visualization of Git Repository Evolution",
@@ -278,10 +278,10 @@ export default function Resume() {
           PDF version
         </Link>
       </div>
-      <div className="mx-auto grid max-w-[calc(250px+60ch)] grid-flow-col grid-cols-[1fr_60ch] grid-rows-[150px_1fr] rounded-lg border-emerald-600 not-print:border print:inset-0 print:h-[200dvh]">
+      <div className="mx-auto grid grid-flow-col grid-cols-[1fr_60ch] grid-rows-[150px_1fr] rounded-lg border-emerald-600 bg-emerald-950 not-print:max-w-[calc(250px+60ch)] not-print:border print:inset-0 print:h-[200vh] print:grid-cols-[232px_1fr]">
         <div className="hidden print:fixed print:top-0 print:right-0 print:left-[14rem] print:block print:h-[2cm]" />
 
-        <header className="relative col-span-2 grid grid-flow-col grid-cols-subgrid items-center rounded-t-lg bg-emerald-950 px-4">
+        <header className="relative col-span-2 grid grid-flow-col grid-cols-subgrid items-center bg-emerald-950 px-4 not-print:rounded-t-lg">
           <Image
             src={profile}
             // src="https://avatars.githubusercontent.com/u/1959615?v=4"
@@ -305,7 +305,7 @@ export default function Resume() {
           </div>
         </header>
 
-        <aside className="flex flex-col bg-emerald-950 p-4 pt-[100px] text-stone-50 shadow-sm not-print:rounded-bl-lg lg:sticky lg:max-w-xs lg:rounded-tr-none lg:rounded-bl-lg">
+        <aside className="flex flex-col bg-emerald-950 p-4 pt-[100px] text-stone-50 shadow-sm not-print:rounded-bl-lg lg:sticky lg:rounded-tr-none lg:rounded-bl-lg not-print:lg:max-w-xs">
           <section className="flex flex-col gap-3">
             <section className="mt-8 flex flex-col">
               <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
@@ -345,13 +345,17 @@ export default function Resume() {
           </section>
         </aside>
 
-        <main className="relative flex flex-col gap-10 bg-stone-300 p-6 text-gray-950 not-print:rounded-br-lg marker:text-emerald-800 print:rounded-tl-xl print:p-4">
+        <main className="relative flex flex-col gap-20 bg-stone-300 p-6 text-gray-950 not-print:rounded-br-lg marker:text-emerald-800 rounded-tl-xl print:p-4">
           {Object.entries(sections).map(([sectionHeading, entries], i) => (
             <section
               key={sectionHeading}
               className="relative flex flex-col gap-2"
             >
-              <SectionHeading title={sectionHeading}>
+              <SectionHeading title={sectionHeading}
+              className={
+                        i === 1 ? "pt-4 break-before-page" : ""
+                      }
+              >
                 {i === 0 ? (
                   <div className="mr-2">
                     <a
@@ -370,9 +374,7 @@ export default function Resume() {
                 {entries.map((item, index) => (
                   <div key={index}>
                     <EntryHeading
-                      className={
-                        i === 1 && index === 1 ? "break-before-page" : ""
-                      }
+
                       title={item.title}
                       institution={item.institution}
                       url={item.url}
@@ -393,14 +395,16 @@ export default function Resume() {
 }
 
 function SectionHeading({
+  className = "",
   title,
   children,
 }: {
+  className?: string
   title: string
   children: React.ReactNode
 }) {
   return (
-    <h2 className="flex items-center gap-1">
+    <h2 className={cn("flex items-center gap-1", className)}>
       <div
         className={cn("flex-1 border-t-2 border-current", {
           "print:flex-3": children,
