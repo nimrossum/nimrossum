@@ -1,7 +1,14 @@
 import { Nav } from "./nav"
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { cn } from "./styling"
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Jonas Nim Røssum - Resumé",
@@ -22,7 +29,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn("relative bg-stone-950 text-stone-100 antialiased")}
+        className={cn(
+          inter.variable,
+          "relative bg-stone-950 text-stone-100 antialiased",
+        )}
       >
         <div
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(16,185,129,0.08),transparent_32%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.06),transparent_30%),radial-gradient(circle_at_50%_82%,rgba(16,185,129,0.04),transparent_32%)] print:hidden"

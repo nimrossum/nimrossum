@@ -6,47 +6,27 @@ const PDF_HEADERS = {
   "Content-Disposition": 'inline; filename="Jonas Nim Røssum - CV.pdf"',
 }
 
-const variantParamAliases = ["v", "focus", "_cv"] as const
-
-function getPdfVariantSuffix(request: Request) {
-  const searchParams = new URL(request.url).searchParams
-  const requestedVariant = variantParamAliases
-    .map((param) => searchParams.get(param))
-    .find(Boolean)
-
-  if (!requestedVariant) {
-    return ""
-  }
-
-  const safeVariant = requestedVariant.replace(/[^a-z0-9_-]/gi, "").slice(0, 40)
-  return safeVariant ? `-${safeVariant}` : ""
-}
-
-function getPdfCachePath(
-  gitHistoryHash: string | undefined,
-  request: Request,
-): string | null {
+function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
   if (!gitHistoryHash) {
     return null
   }
 
-  return `cv/pdf/${gitHistoryHash}${getPdfVariantSuffix(request)}.pdf`
+  return `cv/pdf/${gitHistoryHash}.pdf`
 }
 
 function getPdfSourceUrl(request: Request): string {
   const sourceUrl = new URL("/cv", request.url)
-  sourceUrl.search = new URL(request.url).search
 
   try {
     const override = process.env.CV_PDF_SOURCE_URL
     if (override) {
-      return new URL(`${sourceUrl.pathname}${sourceUrl.search}`, override).toString()
+      return new URL(sourceUrl.pathname, override).toString()
     }
 
     const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
     if (productionDomain) {
       return new URL(
-        `${sourceUrl.pathname}${sourceUrl.search}`,
+        sourceUrl.pathname,
         `https://${productionDomain}`,
       ).toString()
     }
@@ -134,7 +114,8 @@ async function renderPdfWithPlaywright(
     await browser.close()
 
     return Buffer.from(pdf)
-  } catch {
+  } catch (error) {
+    console.error("Error occurred while rendering PDF with Playwright:", error)
     // Playwright not available
     return null
   }
@@ -181,7 +162,7 @@ async function renderPdfWithBrowserless(
 export async function GET(request: Request) {
   const sourceUrl = getPdfSourceUrl(request)
   const isProduction = process.env.VERCEL === "1"
-  const pdfCachePath = getPdfCachePath(process.env.VERCEL_GIT_COMMIT_SHA, request)
+  const pdfCachePath = getPdfCachePath(process.env.VERCEL_GIT_COMMIT_SHA)
 
   if (pdfCachePath) {
     const cachedPdf = await getPdfFromBlobCache(pdfCachePath)
@@ -222,7 +203,13 @@ export async function GET(request: Request) {
   )
 
   if (!browserlessResponse.ok) {
-    console.error("Browserless rendering failed with status", browserlessResponse.status + " " + browserlessResponse.statusText)
+    console.error(
+      "Browserless rendering failed with status",
+      browserlessResponse.status +
+        " " +
+        browserlessResponse.statusText +
+        (await browserlessResponse.text()),
+    )
     return (await getFallbackPdfResponse(request)) ?? browserlessResponse
   }
 
