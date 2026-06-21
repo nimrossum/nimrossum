@@ -247,8 +247,7 @@ const baseSections: CvSections = {
         </>
       ),
       tech: [],
-      url: "",
-      // url: "https://doi.org/10.1109/VISSOFT55257.2022.00021",
+      url: "https://vissoft.io/2026/index.html",
       startYear: "2026",
       endYear: "2026",
       description: null,
