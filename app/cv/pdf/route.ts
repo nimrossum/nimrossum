@@ -6,6 +6,13 @@ const PDF_HEADERS = {
   "Content-Disposition": 'inline; filename="Jonas Nim Røssum - CV.pdf"',
 }
 
+function logPdfEvent(
+  message: string,
+  details: Record<string, string | number | boolean | null | undefined> = {},
+) {
+  console.info("[cv/pdf]", message, details)
+}
+
 function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
   if (!gitHistoryHash) {
     return null
@@ -65,10 +72,17 @@ async function putPdfInBlobCache(pdfCachePath: string, pdf: Buffer) {
   }
 }
 
-function createPdfResponse(pdf: Buffer) {
+function createPdfResponse(pdf: Buffer, source: string) {
+  logPdfEvent("Serving PDF", { source, bytes: pdf.length })
+
   const body = new Uint8Array(pdf.length)
   body.set(pdf)
-  return new Response(body, { headers: PDF_HEADERS })
+  return new Response(body, {
+    headers: {
+      ...PDF_HEADERS,
+      "X-CV-PDF-Source": source,
+    },
+  })
 }
 
 async function getFallbackPdfResponse(
@@ -80,19 +94,31 @@ async function getFallbackPdfResponse(
   ].filter((url): url is string => Boolean(url))
 
   for (const fallbackPdfUrl of fallbackPdfUrls) {
+    logPdfEvent("Trying fallback PDF", { url: fallbackPdfUrl })
+
     try {
       const response = await fetch(fallbackPdfUrl)
       if (!response.ok) {
+        console.warn("[cv/pdf] Fallback PDF failed", {
+          url: fallbackPdfUrl,
+          status: response.status,
+          statusText: response.statusText,
+        })
         continue
       }
 
       const pdf = Buffer.from(await response.arrayBuffer())
-      return createPdfResponse(pdf)
-    } catch {
+      return createPdfResponse(pdf, `fallback:${fallbackPdfUrl}`)
+    } catch (error) {
+      console.warn("[cv/pdf] Fallback PDF request errored", {
+        url: fallbackPdfUrl,
+        error,
+      })
       // Keep trying other fallback locations
     }
   }
 
+  console.warn("[cv/pdf] No fallback PDF succeeded")
   return null
 }
 
@@ -164,22 +190,33 @@ export async function GET(request: Request) {
   const isProduction = process.env.VERCEL === "1"
   const pdfCachePath = getPdfCachePath(process.env.VERCEL_GIT_COMMIT_SHA)
 
+  logPdfEvent("PDF request started", {
+    sourceUrl,
+    isProduction,
+    hasCachePath: Boolean(pdfCachePath),
+    hasBrowserlessToken: Boolean(process.env.BROWSERLESS_API_KEY),
+  })
+
   if (pdfCachePath) {
     const cachedPdf = await getPdfFromBlobCache(pdfCachePath)
     if (cachedPdf) {
-      return createPdfResponse(cachedPdf)
+      return createPdfResponse(cachedPdf, "blob-cache")
     }
+
+    logPdfEvent("Blob cache miss", { pdfCachePath })
   }
 
   // In development, try local Playwright first
   if (!isProduction) {
+    logPdfEvent("Trying local Playwright", { sourceUrl })
     const pdf = await renderPdfWithPlaywright(sourceUrl)
     if (pdf) {
       if (pdfCachePath) {
         await putPdfInBlobCache(pdfCachePath, pdf)
       }
-      return createPdfResponse(pdf)
+      return createPdfResponse(pdf, "playwright")
     }
+    console.warn("[cv/pdf] Local Playwright did not return a PDF")
     // If local Playwright fails, fall back to Browserless below
   }
 
@@ -187,6 +224,7 @@ export async function GET(request: Request) {
   const browserlessToken = process.env.BROWSERLESS_API_KEY
 
   if (!browserlessToken) {
+    console.warn("[cv/pdf] Missing BROWSERLESS_API_KEY, trying fallback PDF")
     return (
       (await getFallbackPdfResponse(request)) ??
       new Response("Missing BROWSERLESS_API_KEY", { status: 500 })
@@ -196,6 +234,11 @@ export async function GET(request: Request) {
   const browserlessUrl =
     process.env.BROWSERLESS_URL ??
     `https://production-sfo.browserless.io/pdf?token=${browserlessToken}`
+
+  logPdfEvent("Trying Browserless", {
+    sourceUrl,
+    url: browserlessUrl.replace(browserlessToken, "[redacted]"),
+  })
 
   const browserlessResponse = await renderPdfWithBrowserless(
     sourceUrl,
@@ -218,5 +261,5 @@ export async function GET(request: Request) {
     await putPdfInBlobCache(pdfCachePath, pdf)
   }
 
-  return createPdfResponse(pdf)
+  return createPdfResponse(pdf, "browserless")
 }
