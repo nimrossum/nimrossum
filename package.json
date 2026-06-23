@@ -14,28 +14,28 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@mdi/js": "^7.4.47",
-    "@vercel/blob": "^2.3.3",
-    "@vercel/functions": "^3.1.4",
+    "@vercel/blob": "^2.4.1",
+    "@vercel/functions": "^3.7.3",
     "clsx": "^2.1.1",
     "i": "^0.3.7",
-    "next": "15.5.9",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "tailwind-merge": "^3.3.1"
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@playwright/test": "^1.60.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.5",
-    "playwright": "^1.60.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.7.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@eslint/eslintrc": "^3.3.5",
+    "@playwright/test": "^1.61.1",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/node": "^26.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.5.0",
+    "eslint-config-next": "16.2.9",
+    "playwright": "^1.61.1",
+    "prettier": "^3.8.4",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
   }
 }
