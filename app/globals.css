@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: hsl(from var(--color-emerald-700) h s calc(l * 0.4));
-  --foreground: #171717;
-  --font-inter:
-    "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-geist-mono:
+  --background: #151712;
+  --foreground: #20231d;
+  --fallback-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fallback-mono:
     "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 }
@@ -13,8 +12,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), var(--fallback-font);
+  --font-heading: var(--font-outfit), var(--fallback-font);
+  --font-mono: var(--font-geist-mono), var(--fallback-mono);
 
   --color-primary: oklch(1 0.0232 47.98);
   --color-primary-100: oklch(from var(--color-primary) calc(l * 0.1) c h);
@@ -28,7 +28,7 @@
   --color-primary-900: oklch(from var(--color-primary) calc(l * 0.9) c h);
 
   --color-main: oklch(from var(--color-gray-50) l c h / 100%);
-  --color-aside: oklch(from var(--color-emerald-950) l c h);
+  --color-aside: #202a22;
 
   --animation-hover: hover 5s ease-in-out infinite;
 }

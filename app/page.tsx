@@ -269,10 +269,10 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12">
       <section className="mx-auto flex min-h-[calc(100dvh-10rem)] flex-col justify-evenly">
-        <div className="mx-auto w-full max-w-6xl rounded-md bg-gradient-to-br from-emerald-800/80 via-stone-900 to-stone-950 p-[1px] shadow-md shadow-black/30">
+        <div className="mx-auto w-full max-w-6xl rounded-md bg-linear-to-br from-emerald-800/80 via-stone-900 to-stone-950 p-px shadow-md shadow-black/30">
           <div className="flex flex-col-reverse items-center gap-10 rounded-md border bg-stone-950/95 p-6 sm:flex-row lg:p-12">
             <div className="max-w-3xl">
-              <h1 className="mb-2 bg-gradient-to-br from-stone-100 to-stone-400 bg-clip-text font-mono text-4xl leading-none font-bold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
+              <h1 className="mb-2 bg-linear-to-br from-stone-100 to-stone-400 bg-clip-text font-mono text-4xl leading-none font-bold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
                 Jonas Nim Røssum
               </h1>
               <p className="font-mono text-sm tracking-widest text-emerald-400/90 uppercase">
@@ -294,7 +294,7 @@ export default function Home() {
                   target="_blank"
                   prefetch="auto"
                   href={"/cv/pdf" as Route}
-                  className="flex items-center gap-2 rounded-sm bg-gradient-to-t from-emerald-500 to-emerald-600 px-5 py-3 text-sm font-bold text-stone-900 transition hover:to-emerald-400"
+                  className="flex items-center gap-2 rounded-sm bg-linear-to-t from-emerald-500 to-emerald-600 px-5 py-3 text-sm font-bold text-stone-900 transition hover:to-emerald-400"
                 >
                   <DocumentTextIcon className="size-5" />
                   CV (PDF)
@@ -317,12 +317,12 @@ export default function Home() {
                 className="absolute -inset-3 rounded-sm bg-emerald-400/10 blur-2xl"
                 aria-hidden
               />
-              <div className="rounded-b-lg bg-[linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(16,185,129,0.08)_4%,rgba(16,185,129,0.65)_100%)] p-[1px] shadow-black/30">
+              <div className="rounded-b-lg bg-[linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(16,185,129,0.08)_4%,rgba(16,185,129,0.65)_100%)] p-px shadow-black/30">
                 <div className="overflow-hidden rounded-b-lg bg-stone-950/95">
                   <Image
                     src={profileImg}
                     alt="Portrait of Jonas"
-                    className="relative aspect-[4/5] w-full object-cover shadow-sm brightness-95"
+                    className="relative aspect-4/5 w-full object-cover shadow-sm brightness-95"
                     priority
                   />
                 </div>
@@ -388,7 +388,7 @@ export default function Home() {
             </div>
             <div className="relative mt-7">
               {/* Continuous vertical line for the timeline */}
-              <div className="absolute top-8 bottom-10 left-[11px] w-[2px] bg-stone-800/80" />
+              <div className="absolute top-8 bottom-10 left-2.75 w-0.5 bg-stone-800/80" />
 
               <div className="flex flex-col gap-4">
                 {filteredExperiences.map((item) => {
@@ -408,7 +408,7 @@ export default function Home() {
                         {isMultiYear && (
                           <>
                             <div
-                              className={`my-1.5 w-[2px] flex-1 transition-colors duration-300 ${style.timelineLine}`}
+                              className={`my-1.5 w-0.5 flex-1 transition-colors duration-300 ${style.timelineLine}`}
                             />
                             <div
                               className={`mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] bg-stone-950 transition-all duration-300 ${style.timelineDot}`}
@@ -436,7 +436,7 @@ export default function Home() {
                             </p>
                           </div>
                           <span
-                            className={`flex-shrink-0 rounded-sm border bg-stone-900/80 px-2 py-1 text-[11px] font-semibold uppercase ${style.yearText}`}
+                            className={`shrink-0 rounded-sm border bg-stone-900/80 px-2 py-1 text-[11px] font-semibold uppercase ${style.yearText}`}
                           >
                             {item.year}
                           </span>
@@ -510,7 +510,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="relative mt-5">
-              <div className="absolute top-8 bottom-10 left-[11px] w-[2px] bg-stone-800/80" />
+              <div className="absolute top-8 bottom-10 left-2.75 w-0.5 bg-stone-800/80" />
               <div className="flex flex-col gap-4">
                 {toyProjects.map((item) => {
                   const isMultiYear =
@@ -524,7 +524,7 @@ export default function Home() {
                         <div className="mt-5 h-3 w-3 shrink-0 rounded-full border-2 border-amber-500 bg-stone-950 transition-all duration-300 group-hover:scale-[1.3] group-hover:bg-amber-500 group-hover:shadow-[0_0_12px_rgba(245,158,11,0.5)]" />
                         {isMultiYear && (
                           <>
-                            <div className="my-1.5 w-[2px] flex-1 bg-amber-500/30 transition-colors duration-300 group-hover:bg-amber-500/80 group-hover:shadow-[0_0_8px_rgba(245,158,11,0.3)]" />
+                            <div className="my-1.5 w-0.5 flex-1 bg-amber-500/30 transition-colors duration-300 group-hover:bg-amber-500/80 group-hover:shadow-[0_0_8px_rgba(245,158,11,0.3)]" />
                             <div className="mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] border-amber-500/50 bg-stone-950 transition-all duration-300 group-hover:scale-[1.3] group-hover:border-amber-500 group-hover:bg-amber-500 group-hover:shadow-[0_0_10px_rgba(245,158,11,0.4)]" />
                           </>
                         )}
@@ -544,7 +544,7 @@ export default function Home() {
                               {item.role}
                             </p>
                           </div>
-                          <span className="flex-shrink-0 rounded-sm border border-amber-500/20 bg-stone-900/80 px-2 py-1 text-[11px] font-semibold text-amber-200/70 uppercase">
+                          <span className="shrink-0 rounded-sm border border-amber-500/20 bg-stone-900/80 px-2 py-1 text-[11px] font-semibold text-amber-200/70 uppercase">
                             {item.year}
                           </span>
                         </div>

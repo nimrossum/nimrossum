@@ -1,10 +1,10 @@
-import { cvVariants } from "../cv/page";
+import { cvVariants } from "../cv/page"
 
 export default function CvLinks() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-bold text-white">CV Links</h1>
-      <ul className="list-disc list-inside">
+      <ul className="list-inside list-disc">
         {Object.entries(cvVariants).map(([variant, content]) => (
           <li key={variant} className="flex space-x-8">
             <a
@@ -23,5 +23,5 @@ export default function CvLinks() {
         ))}
       </ul>
     </div>
-  );
+  )
 }

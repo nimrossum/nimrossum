@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, SVGProps } from "react"
+import { ReactNode, SVGProps } from "react"
 import Image from "next/image"
 import profile from "../profile.jpg"
 import { cn } from "../styling"
@@ -22,11 +22,15 @@ const tech = {
   javascript: { title: "JavaScript", color: "#F7DF1E" },
   python: { title: "Python", color: "#3776AB" },
   dotnet: { title: ".NET", color: "#512BD4" },
+  csharp: { title: "C#", color: "#239120" },
   vue: { title: "Vue", color: "#4FC08D" },
   tailwind: { title: "TailwindCSS", color: "#06B6D4" },
   graphql: { title: "GraphQL", color: "#E10098" },
   docker: { title: "Docker", color: "#2496ED" },
   mui: { title: "Material UI", color: "#007FFF" },
+  gis: { title: "GIS", color: "#2E7D32" },
+  pointclouds: { title: "Point Clouds", color: "#0F766E" },
+  tiling3d: { title: "3D Tiling", color: "#7C3AED" },
   scala: { title: "Scala", color: "#DC322F" },
   java: { title: "Java", color: "#ea9100" },
   ml: {
@@ -75,17 +79,27 @@ const tech = {
 type Tech = (typeof tech)[keyof typeof tech]
 
 type Entry = {
-  title: string
-  hoverTitle: string
+  title?: string
+  hoverTitle?: string
   institution: ReactNode
-  url: string
+  url?: string
   tech: Array<Tech>
-  startYear: string
+  startYear?: string
   endYear?: string
   description: ReactNode
 }
 
 type CvSections = Record<string, Entry[]>
+
+const headline = "Full-stack software engineer with strong frontend expertise"
+
+const summary = (
+  <>
+    Full-stack software engineer with strong frontend expertise in
+    TypeScript/React. I build polished products end to end, turning complex
+    technical requirements into intuitive, reliable software.
+  </>
+)
 
 const baseSections: CvSections = {
   Experience: [
@@ -108,24 +122,20 @@ const baseSections: CvSections = {
       startYear: "2022",
       endYear: "Present",
       description: (
-        <ul className="ml-0 flex list-disc flex-col gap-2 marker:text-emerald-800">
+        <ul className="marker:text-aside ml-4 flex list-disc flex-col gap-2">
           <li>
             Lead developer and maintainer of Git Truck, an open-source developer
             tool for software visualization and Git repository analysis.
           </li>
           <li>
-            Own the TypeScript/React architecture for contributor analysis,
-            temporal filtering, repository exploration, and CLI-driven usage.
-          </li>
-          <li>
-            Build data-heavy visualization workflows with D3 and DuckDB, with
-            attention to performance, release quality, and UX for large
-            repositories.
+            Maintain the TypeScript/React architecture for contributor analysis,
+            temporal filtering, repository exploration, and data-heavy D3/DuckDB
+            visualization workflows.
           </li>
           <li>
             Migrated from Remix v2 and styled-components to React Router v7,
-            Tailwind CSS v4, Bun, Vite, and Node.js tooling, improving data
-            loading, UI consistency, and contributor experience.
+            Tailwind CSS v4, Bun, Vite tooling, improving data loading, UI
+            consistency, and longevity of the codebase.
           </li>
         </ul>
       ),
@@ -144,12 +154,7 @@ const baseSections: CvSections = {
       startYear: "2022",
       endYear: "2023",
       description: (
-        <ul className="ml-0 flex list-disc flex-col gap-2">
-          <li>
-            Worked as a software engineering consultant in agile client teams,
-            building React/TypeScript tools for operational and advisory
-            workflows.
-          </li>
+        <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
             Built React/TypeScript internal tools, uptime dashboards, and
             operational interfaces for PensionDanmark, improving visibility into
@@ -168,29 +173,39 @@ const baseSections: CvSections = {
       hoverTitle:
         "Click to learn more about the projects I developed at the company",
       institution: "Dansk Drone Kompagni ApS",
-      tech: [tech.typescript, tech.react, tech.dotnet],
+      tech: [
+        tech.typescript,
+        tech.react,
+        tech.dotnet,
+        tech.csharp,
+        tech.mui,
+        tech.gis,
+      ],
       url: "https://www.dronekompagniet.dk/produkter/software/",
       startYear: "2016",
       endYear: "2019",
       description: (
-        <ul className="ml-0 flex list-disc flex-col gap-2">
+        <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Built full-stack B2B geospatial products with React and .NET for
-            clients including Odense Letbane, covering mapping, reporting, and
-            customer-facing workflows.
+            Built full-stack B2B geospatial products with React, TypeScript,
+            Material Design, and .NET/C#, including drone-captured site data,
+            measurements, reporting, and inspection workflows.
           </li>
           <li>
-            Integrated serverless geospatial processing for map analysis, data
-            exports, and PDF report generation.
+            Integrated serverless processing for map analysis, data exports, and
+            PDF report generation, turning large spatial datasets into practical
+            tools for professional users.
           </li>
           <li>
-            Owned product requirements, architecture choices, implementation,
-            and release delivery in a startup environment.
+            Owned features end-to-end across requirements, architecture,
+            frontend, backend, release delivery, and client feedback in a small
+            product-focused team.
           </li>
         </ul>
       ),
     },
   ],
+
   Education: [
     {
       title: "MSc Computer Science",
@@ -205,12 +220,8 @@ const baseSections: CvSections = {
       startYear: "2023",
       endYear: "2026",
       description: (
-        <ul className="flex list-disc flex-col gap-2">
-          <li>
-            Focused on software visualization, machine learning, and
-            developer-facing tools.
-          </li>
-          <li>MSc thesis published at IEEE VISSOFT 2026.</li>
+        <ul className="ml-4 list-disc">
+          <li>Focused on software visualization and machine learning.</li>
         </ul>
       ),
     },
@@ -225,20 +236,79 @@ const baseSections: CvSections = {
       startYear: "2019",
       endYear: "2023",
       description: (
-        <ul className="ml-0 flex list-disc flex-col gap-2">
+        <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
             Focused on software evolution, maintenance, DevOps, and application
             development.
           </li>
-          <li>BSc thesis published at IEEE VISSOFT 2022.</li>
+        </ul>
+      ),
+    },
+  ],
+  Summary: [
+    {
+      institution: "",
+      tech: [],
+      description: <p className="text-xs leading-relaxed">{summary}</p>,
+    },
+  ],
+  "Selected Projects": [
+    {
+      title: "Git Truck",
+      hoverTitle: "Click to view the project on GitHub",
+      institution: "Open Source",
+      url: "https://github.com/git-truck/git-truck",
+      tech: [
+        tech.typescript,
+        tech.react,
+        tech.reactRouter,
+        tech.tailwind,
+        tech.d3,
+        tech.duckdb,
+        tech.nodejs,
+        tech.bun,
+        tech.vite,
+      ],
+      startYear: "2022",
+      endYear: "Present",
+      description: (
+        <ul className="ml-4 flex list-disc flex-col gap-2">
+          <li>
+            Open-source TypeScript/React tool for visualizing Git repository
+            evolution, contributor activity, and codebase structure.
+          </li>
+          <li>
+            Combines Git data processing, DuckDB-backed analysis, and D3
+            visualizations for interactive exploration of large repositories.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: "Speech & Dialogue Systems",
+      hoverTitle: "Speech and dialogue systems project",
+      institution: "Erasmus Exchange Project",
+      tech: [tech.ml],
+      startYear: "2024",
+      endYear: "2024",
+      description: (
+        <ul className="ml-4 flex list-disc flex-col gap-2">
+          <li>
+            Built end-to-end voice interaction prototypes connecting STT,
+            dialogue management, TTS, and speech APIs including ElevenLabs.
+          </li>
+          <li>
+            Addressed real-time voice interface constraints including latency,
+            turn-taking, interruption handling, and robustness to recognition
+            errors in product-like conversational flows.
+          </li>
         </ul>
       ),
     },
   ],
   Publications: [
     {
-      title:
-        "Git-Truck@Pluck – Contributor-Centric Coordinated Views for Hierarchical Visualization of Git Repository Evolution",
+      title: "Git-Truck@Pluck",
       hoverTitle: "Click to view the publication",
       institution: (
         <>
@@ -271,40 +341,47 @@ const baseSections: CvSections = {
   ],
 }
 
-const headline = "Full-stack TypeScript / React Developer"
-
-const summary = (
-  <>
-    Full-stack TypeScript/React developer building production-grade tools,
-    data-heavy interfaces, and developer tooling. Maintains open-source software
-    through Git Truck, with strong frontend architecture, visualization, Node.js
-    integration, and MSc-level computer science experience.
-  </>
-)
-
-const focus = [
-  "React, TypeScript, UI architecture",
-  "Data visualization and developer tools",
-  "Full-stack product delivery",
-]
+// const summary = (
+//   <>
+//     <p>
+//       Experienced full-stack developer with a strong background in
+//       production-grade tooling and data-heavy interfaces, and developer tooling.
+//     </p>
+//     <p>
+//       Built geospatial software at Dansk Drone Kompagni for drone-based site
+//       data, mapping, and reporting.
+//     </p>
+//     <p>
+//       I enjoy taking ownership of features end-to-end across frontend, backend,
+//       and product collaboration.
+//     </p>
+//   </>
+// )
 
 const skills = [
   "TypeScript",
   "React",
+  "C# / .NET",
   "React Router",
   "Next.js",
   "Node.js",
   "Tailwind CSS",
   "D3",
+  "GIS / Mapping",
   "Git",
   "GitHub Actions",
-  "Vite / Bun",
+  "Vite",
+  "Bun",
   "DuckDB",
 ]
 
 export default function Resume() {
   const sections = baseSections
   const pdfHref = "/cv/pdf"
+  const sectionColumns = [
+    ["Summary", "Experience"],
+    ["Selected Projects", "Education", "Publications"],
+  ]
 
   return (
     <>
@@ -313,136 +390,134 @@ export default function Resume() {
           target="_blank"
           prefetch="auto"
           href={pdfHref as Route}
-          className="mx-auto flex w-fit items-center gap-2 rounded px-3 py-2 font-bold text-emerald-400 transition-colors hover:bg-emerald-500 hover:text-white"
+          className="mx-auto flex w-fit items-center gap-2 rounded border border-[#d6b36a]/30 bg-[#1f261c] px-3 py-2 text-sm font-bold text-[#f0d894] transition-colors hover:border-[#f0d894] hover:bg-[#283322] hover:text-white"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
           PDF version
         </Link>
       </div>
-      <div className="mx-auto grid grid-flow-col grid-cols-[1fr_60ch] grid-rows-[150px_1fr] rounded-lg border-emerald-600 bg-emerald-950 not-print:max-w-[calc(250px+60ch)] not-print:border print:inset-0 print:min-h-[200vh] print:grid-cols-[232px_1fr]">
-        <div className="hidden print:fixed print:top-0 print:right-0 print:left-[14rem] print:block print:h-[2cm]" />
+      <div className="bg-aside mx-auto grid overflow-hidden border-[#3f4c37] shadow-2xl shadow-black/25 [grid-template-areas:'header_header'_'main_main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border lg:grid-cols-[200px_auto] lg:grid-rows-[150px_1fr] print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none">
+        <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
 
-        <header className="relative col-span-2 grid grid-flow-col grid-cols-subgrid items-center bg-emerald-950 px-4 not-print:rounded-t-lg">
+        <header className="bg-aside relative flex grid-rows-[1fr_auto] items-center justify-around px-6 [grid-area:header] lg:min-h-0 print:col-span-2">
           <Image
             src={profile}
-            // src="https://avatars.githubusercontent.com/u/1959615?v=4"
             alt="Avatar"
-            width="200"
-            height="200"
             loading="eager"
             priority
             className={cn(
-              "absolute bottom-0 left-4 z-10 translate-y-1/2 rounded-full border-2 border-emerald-50",
+              "z-10 row-span-2 -mr-20 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 border-[#f7f5ee] object-cover shadow-xl shadow-black/25",
             )}
           />
-          <div />
-          <div>
-            <h1 className="text-center text-5xl text-emerald-50">
-              Jonas Nim Røssum
-            </h1>
-            <p className="mx-auto mt-2 text-center text-sm font-bold tracking-wide text-pretty text-emerald-50/70 uppercase">
-              {headline}
-            </p>
+          <div className="flex flex-col justify-around gap-2 text-center lg:gap-4 lg:text-left">
+            <section className="flex items-center justify-center gap-x-8 gap-y-0">
+              <ContactEntry
+                className="text-xs text-[#eef3df]/70 hover:text-white"
+                content="hello@nimrossum.com"
+                url="mailto:hello@nimrossum.com"
+                iconFn={AtSymbolIcon}
+              />
+              <ContactEntry
+                className="text-xs text-[#eef3df]/70 hover:text-white"
+                content="in/jonasnimrossum"
+                url="https://www.linkedin.com/in/jonasnimrossum/"
+                iconFn={BriefcaseIcon}
+                rel="me" // semantic hint for identity link
+              />
+              <ContactEntry
+                className="text-xs text-[#eef3df]/70 not-print:hidden hover:text-white"
+                content="+45 52 25 13 37"
+                url="tel:+4552251337"
+                iconFn={PhoneIcon}
+              />
+            </section>
+            <div className="mx-auto max-w-xl pt-2 text-center lg:pr-8">
+              <h1 className="font-heading text-4xl font-bold tracking-tighter text-[#f2dfad] uppercase sm:text-5xl">
+                Jonas Nim Røssum
+              </h1>
+              <p className="mx-auto mt-3 max-w-64 text-sm font-bold tracking-wider text-pretty text-[#d7d8cf]/70">
+                {headline}
+              </p>
+            </div>
           </div>
         </header>
 
-        <aside className="flex flex-col bg-emerald-950 p-4 pt-[100px] text-stone-50 shadow-sm not-print:rounded-bl-lg lg:sticky lg:rounded-tr-none lg:rounded-bl-lg not-print:lg:max-w-xs">
-          <section className="flex flex-col gap-3">
-            <section className="mt-8 flex flex-col">
-              <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
+        {/* <aside className="flex flex-col p-6 text-[#eef3df] shadow-sm [grid-area:aside] not-print:lg:max-w-xs">
+          <section className="space-y-6">
+            <section className="flex flex-col">
+              <h2 className="mb-2 text-sm leading-normal font-bold tracking-widest text-[#f0d894] uppercase">
                 Contact
               </h2>
-              <section className="grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-3">
+              <section className="grid grid-cols-[auto_1fr] items-center gap-x-2 gap-y-0">
                 <ContactEntry
+                  className="text-xs text-[#eef3df]/70 hover:text-white"
                   content="hello@nimrossum.com"
                   url="mailto:hello@nimrossum.com"
                   iconFn={AtSymbolIcon}
                 />
                 <ContactEntry
+                  className="text-xs text-[#eef3df]/70 hover:text-white"
                   content="in/jonasnimrossum"
                   url="https://www.linkedin.com/in/jonasnimrossum/"
                   iconFn={BriefcaseIcon}
                   rel="me" // semantic hint for identity link
                 />
                 <ContactEntry
-                  className="not-print:hidden"
+                  className="text-xs text-[#eef3df]/70 not-print:hidden hover:text-white"
                   content="+45 52 25 13 37"
                   url="tel:+4552251337"
                   iconFn={PhoneIcon}
                 />
               </section>
             </section>
-            <section className="mt-8 flex flex-col">
-              <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
+            <section className="flex flex-col">
+              <h2 className="mb-2 text-sm leading-normal font-bold tracking-widest text-[#f0d894] uppercase">
                 Languages
               </h2>
-              <section className="relative flex flex-col place-content-between gap-2 opacity-70">
+              <section className="relative flex flex-col place-content-between gap-2 text-sm text-[#eef3df]/76">
                 <div>Danish, native</div>
                 <div>English, fluent</div>
               </section>
             </section>
-            {focus.length ? (
-              <section className="mt-8 flex flex-col">
-                <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
-                  Focus
-                </h2>
-                <section className="relative flex flex-col place-content-between gap-2 opacity-70">
-                  {focus.map((item) => (
-                    <div key={item}>{item}</div>
-                  ))}
-                </section>
-              </section>
-            ) : null}
-            {skills.length ? (
-              <section className="mt-8 flex flex-col">
-                <h2 className="mb-3 text-sm leading-normal font-bold tracking-widest text-emerald-50/50 uppercase opacity-60">
-                  Skills
-                </h2>
-                <section className="relative flex flex-wrap gap-2 opacity-80">
-                  {skills.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded bg-emerald-50/10 px-2 py-1 text-xs font-semibold text-emerald-50"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </section>
-              </section>
-            ) : null}
           </section>
-        </aside>
+        </aside> */}
 
-        <main className="relative flex flex-col gap-12 rounded-tl-xl bg-stone-300 p-6 text-gray-950 not-print:rounded-br-lg marker:text-emerald-800 print:gap-8 print:p-4 print:text-[15px] print:leading-snug">
-          <section>
-            <p>{summary}</p>
-          </section>
-          {Object.entries(sections).map(([sectionHeading, entries], i) => (
-            <section
-              key={sectionHeading}
-              className="relative flex flex-col gap-2"
-            >
-              <SectionHeading
-                title={sectionHeading}
-                className={i === 1 ? "break-before-page pt-4" : ""}
-              />
-              <section className="flex flex-col gap-6 pl-4 print:gap-3">
-                {entries.map((item, index) => (
-                  <div key={index}>
-                    <EntryHeading
-                      title={item.title}
-                      institution={item.institution}
-                      url={item.url}
-                      startDate={item.startYear}
-                      endDate={item.endYear}
-                    />
-                    <EntryTech tech={item.tech} />
-                    <div className="text-gray-800">{item.description}</div>
-                  </div>
-                ))}
-              </section>
-            </section>
+        <main className="relative mx-4 mt-4 grid w-auto grid-cols-1 gap-10 border-t border-[#d8d5c7] bg-[#f7f5ee] p-6 text-[#20231d] [grid-area:main] marker:text-[#55745d] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:rounded-t-xl lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
+          {sectionColumns.map((column, columnIndex) => (
+            <div key={columnIndex} className="flex flex-col gap-10 print:gap-6">
+              {column.map((sectionHeading) => {
+                const entries = sections[sectionHeading]
+
+                return (
+                  <section
+                    key={sectionHeading}
+                    className="relative flex flex-col gap-2"
+                  >
+                    <SectionHeading title={sectionHeading} />
+                    <section className="flex flex-col gap-6 print:gap-3">
+                      {entries.map((item, index) => (
+                        <div key={index}>
+                          {item.title ? (
+                            <EntryHeading
+                              title={item.title}
+                              institution={item.institution}
+                              url={item.url}
+                              startDate={item.startYear}
+                              endDate={item.endYear}
+                            />
+                          ) : null}
+                          {/* <EntryTech tech={item.tech} /> */}
+                          <div className="text-xs leading-relaxed text-[#3f423b]">
+                            {item.description}
+                          </div>
+                        </div>
+                      ))}
+                    </section>
+                  </section>
+                )
+              })}
+            </div>
           ))}
         </main>
       </div>
@@ -453,22 +528,21 @@ export default function Resume() {
 function SectionHeading({
   className = "",
   title,
-  children = null,
 }: {
   className?: string
   title: string
-  children?: React.ReactNode
 }) {
   return (
-    <h2 className={cn("flex items-center gap-1 text-emerald-950", className)}>
-      <div
-        className={cn("flex-1 border-t-2 border-current", {
-          "print:flex-3": children,
-        })}
-      />
-      <div className="text-lg font-bold tracking-widest uppercase">{title}</div>
-      <div className="flex-1 border-t-2 border-current" />
-      <div className="flex-0">{children}</div>
+    <h2
+      className={cn(
+        "font-heading flex items-center gap-3 text-[#1f332b]",
+        className,
+      )}
+    >
+      <div className="h-px flex-1 bg-[#c8c2ad]" />
+      <div className="text-lg font-bold tracking-[0.14em] uppercase">
+        {title}
+      </div>
     </h2>
   )
 }
@@ -484,60 +558,76 @@ function EntryHeading({
   className?: string
   title: ReactNode
   institution: ReactNode
-  url: string
-  startDate: string | number
+  url?: string
+  startDate?: string | number
   endDate?: string | number
 }) {
   return (
     <div
       className={cn(
-        "mt-4 mb-2 flex justify-between gap-2 print:mt-2 print:mb-1",
+        "mt-4 mb-2 justify-between gap-4 print:mt-2 print:mb-1",
         className,
       )}
     >
-      <h3>
+      <div className="flex justify-between">
+        <h3>
+          <span className="font-heading text-sm leading-tight font-bold">
+            {title}
+          </span>
+        </h3>
+        {startDate ? (
+          <div className="pt-0.5 text-right text-xs font-semibold whitespace-nowrap text-[#8a7b55]">
+            {startDate}{" "}
+            {endDate !== startDate ? <>&mdash; {endDate ?? "Present"}</> : null}
+          </div>
+        ) : null}
+      </div>
+      {url ? (
         <a
-          className="flex w-fit items-center justify-start gap-3 border-b border-current hover:text-emerald-500"
+          className="group flex w-fit items-start justify-start gap-2 text-[#20231d] transition-colors hover:text-[#456c52]"
           href={url}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span>
-            <span className="font-bold">{title}, </span>
-            {institution}
-          </span>
+          <div className="flex flex-col">
+            <span className="mt-0.5 text-sm leading-snug text-[#6b675b]">
+              {institution}
+            </span>
+          </div>
           <ArrowTopRightOnSquareIcon
-            className="inline-flex size-4 shrink-0"
+            className="mt-0.5 inline-flex size-4 shrink-0 text-[#8a7b55] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             aria-hidden="true"
           />
         </a>
-      </h3>
-      <div className="text-sm font-medium whitespace-nowrap text-gray-500">
-        {startDate}{" "}
-        {endDate !== startDate ? <>&mdash; {endDate ?? "Present"}</> : null}
-      </div>
+      ) : (
+        <div className="flex flex-col">
+          <span className="mt-0.5 text-sm leading-snug text-[#6b675b]">
+            {institution}
+          </span>
+        </div>
+      )}
     </div>
   )
 }
 
 function EntryTech({ tech }: { tech: Array<Tech> }) {
   return (
-    <div className="mt-2 mb-3 flex flex-wrap gap-1 print:mt-1 print:mb-2">
+    <div className="mt-2 mb-3 flex flex-wrap gap-1.5 print:mt-1 print:mb-2">
       {tech.map((item) => (
         <span
           key={item.title}
           className={cn(
-            "rounded px-2 py-0.5 text-xs font-semibold",
-            ("className" in item ? item.className : null) ?? "",
-            `text-(--contrast-color)`,
+            "bg-aside/80 rounded border border-black/8 px-2 py-0.5 text-xs font-bold text-white shadow-sm",
+            // ("className" in item ? item.className : null) ?? "",
+            // `text-(--contrast-color)`,
           )}
-          style={
-            {
-              ...("style" in item ? item.style : {}),
-              backgroundColor: item.color,
-              "--contrast-color": `contrast-color(${item.color})`,
-            } as CSSProperties
-          }
+          // style={
+          //   {
+          //     ...("style" in item ? item.style : {}),
+          //     backgroundColor: item.color,
+          //     "--contrast-color": `contrast-color(${item.color})`,
+          //   } as CSSProperties
+          // }
         >
           {item.title}
         </span>
@@ -562,9 +652,9 @@ function ContactEntry({
   rel?: string
 }) {
   return (
-    <>
+    <div className="flex items-center gap-1 leading-1">
       <Icon
-        className={cn("size-5 opacity-70", className)}
+        className={cn("size-3 opacity-70", className)}
         aria-hidden="true"
         {...iconProps}
       />
@@ -578,6 +668,6 @@ function ContactEntry({
           {content}
         </a>
       </p>
-    </>
+    </div>
   )
 }
