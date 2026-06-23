@@ -436,7 +436,7 @@ export default function Resume() {
               <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#f2dfad] uppercase">
                 Jonas Nim Røssum
               </h1>
-              <p className="mx-auto mt-3 max-w-64 text-sm font-bold tracking-wider text-pretty text-[#d7d8cf]/70">
+              <p className="mx-auto mt-3 max-w-72 text-base leading-snug font-extrabold tracking-wider text-pretty text-[#f2dfad]/82">
                 {headline}
               </p>
             </div>
