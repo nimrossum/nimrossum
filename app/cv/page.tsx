@@ -397,43 +397,43 @@ export default function Resume() {
           PDF version
         </Link>
       </div>
-      <div className="bg-aside mx-auto grid overflow-hidden border-[#3f4c37] shadow-2xl shadow-black/25 [grid-template-areas:'header_header'_'main_main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border lg:grid-cols-[200px_auto] lg:grid-rows-[150px_1fr] print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none">
+      <div className="bg-aside mx-auto grid overflow-hidden border-[#3f4c37] shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
         <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
 
-        <header className="bg-aside relative flex grid-rows-[1fr_auto] items-center justify-around px-6 [grid-area:header] lg:min-h-0 print:col-span-2">
+        <header className="bg-aside relative hidden items-center justify-around px-6 [grid-area:header] print:col-span-2 print:flex">
           <Image
             src={profile}
             alt="Avatar"
             loading="eager"
             priority
             className={cn(
-              "z-10 row-span-2 -mr-20 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 border-[#f7f5ee] object-cover shadow-xl shadow-black/25",
+              "z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 border-[#f7f5ee] object-cover shadow-xl shadow-black/25",
             )}
           />
-          <div className="flex flex-col justify-around gap-2 text-center lg:gap-4 lg:text-left">
+          <div className="flex flex-col justify-around gap-4 text-center">
             <section className="flex items-center justify-center gap-x-8 gap-y-0">
               <ContactEntry
-                className="text-xs text-[#eef3df]/70 hover:text-white"
+                className="text-xs text-[#eef3df]/70"
                 content="hello@nimrossum.com"
                 url="mailto:hello@nimrossum.com"
                 iconFn={AtSymbolIcon}
               />
               <ContactEntry
-                className="text-xs text-[#eef3df]/70 hover:text-white"
+                className="text-xs text-[#eef3df]/70"
                 content="in/jonasnimrossum"
                 url="https://www.linkedin.com/in/jonasnimrossum/"
                 iconFn={BriefcaseIcon}
-                rel="me" // semantic hint for identity link
+                rel="me"
               />
               <ContactEntry
-                className="text-xs text-[#eef3df]/70 not-print:hidden hover:text-white"
+                className="text-xs text-[#eef3df]/70"
                 content="+45 52 25 13 37"
                 url="tel:+4552251337"
                 iconFn={PhoneIcon}
               />
             </section>
             <div className="mx-auto max-w-xl pt-2 text-center lg:pr-8">
-              <h1 className="font-heading text-4xl font-bold tracking-tighter text-[#f2dfad] uppercase sm:text-5xl">
+              <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#f2dfad] uppercase">
                 Jonas Nim Røssum
               </h1>
               <p className="mx-auto mt-3 max-w-64 text-sm font-bold tracking-wider text-pretty text-[#d7d8cf]/70">
@@ -443,47 +443,7 @@ export default function Resume() {
           </div>
         </header>
 
-        {/* <aside className="flex flex-col p-6 text-[#eef3df] shadow-sm [grid-area:aside] not-print:lg:max-w-xs">
-          <section className="space-y-6">
-            <section className="flex flex-col">
-              <h2 className="mb-2 text-sm leading-normal font-bold tracking-widest text-[#f0d894] uppercase">
-                Contact
-              </h2>
-              <section className="grid grid-cols-[auto_1fr] items-center gap-x-2 gap-y-0">
-                <ContactEntry
-                  className="text-xs text-[#eef3df]/70 hover:text-white"
-                  content="hello@nimrossum.com"
-                  url="mailto:hello@nimrossum.com"
-                  iconFn={AtSymbolIcon}
-                />
-                <ContactEntry
-                  className="text-xs text-[#eef3df]/70 hover:text-white"
-                  content="in/jonasnimrossum"
-                  url="https://www.linkedin.com/in/jonasnimrossum/"
-                  iconFn={BriefcaseIcon}
-                  rel="me" // semantic hint for identity link
-                />
-                <ContactEntry
-                  className="text-xs text-[#eef3df]/70 not-print:hidden hover:text-white"
-                  content="+45 52 25 13 37"
-                  url="tel:+4552251337"
-                  iconFn={PhoneIcon}
-                />
-              </section>
-            </section>
-            <section className="flex flex-col">
-              <h2 className="mb-2 text-sm leading-normal font-bold tracking-widest text-[#f0d894] uppercase">
-                Languages
-              </h2>
-              <section className="relative flex flex-col place-content-between gap-2 text-sm text-[#eef3df]/76">
-                <div>Danish, native</div>
-                <div>English, fluent</div>
-              </section>
-            </section>
-          </section>
-        </aside> */}
-
-        <main className="relative mx-4 mt-4 grid w-auto grid-cols-1 gap-10 border-t border-[#d8d5c7] bg-[#f7f5ee] p-6 text-[#20231d] [grid-area:main] marker:text-[#55745d] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:rounded-t-xl lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
+        <main className="relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t border-[#d8d5c7] bg-[#f7f5ee] p-4 text-[#20231d] [grid-area:main] marker:text-[#55745d] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
           {sectionColumns.map((column, columnIndex) => (
             <div key={columnIndex} className="flex flex-col gap-10 print:gap-6">
               {column.map((sectionHeading) => {
