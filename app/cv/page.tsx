@@ -137,8 +137,7 @@ const baseSections: CvSections = {
           </li>
           <li>
             Migrated from Remix v2 and styled-components to React Router v7,
-            Tailwind CSS v4, Bun, Vite tooling, improving data loading, UI
-            consistency, and longevity of the codebase.
+            Tailwind CSS v4, Bun, Vite tooling, improving data loading, and longevity of the codebase.
           </li>
         </ul>
       ),
@@ -192,7 +191,7 @@ const baseSections: CvSections = {
           <li>
             Built full-stack B2B geospatial products with React, TypeScript,
             Material Design, and .NET/C#, including drone-captured site data,
-            measurements, reporting, and inspection workflows.
+            reporting, and inspection workflows.
           </li>
           <li>
             Integrated serverless processing for map analysis, data exports, and
