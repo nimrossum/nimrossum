@@ -240,13 +240,14 @@ export default function Home() {
     {
       year: "2022",
       title: "Ordle",
-      role: "React",
-      body: "Danish Wordle clone.",
+      role: "Next.js / Tailwind / OpenAI API",
+      body: "Danish Wordle clone in Next.js with AI hints and a custom word list.",
+      href: "https://ordle.nimrossum.com/",
     },
     {
       year: "2021",
       title: "Fruit Rush",
-      role: "React",
+      role: "React / Web Gamepad API",
       body: "Browser-based local multiplayer action game with native controller support utilizing the Web Gamepad API.",
       href: "https://fruit-rush.nimrossum.com/",
     },

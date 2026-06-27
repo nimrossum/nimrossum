@@ -96,8 +96,11 @@ const headline = "Full-stack software engineer with strong frontend expertise"
 const summary = (
   <>
     Full-stack software engineer with strong frontend expertise in
-    TypeScript/React. I build polished products end to end, turning complex
-    technical requirements into intuitive, reliable software.
+    TypeScript/React. I build polished products end to end, translating complex
+    technical requirements into intuitive, reliable software. I’m a team player
+    and work well in collaborative, high-quality engineering environments. In my
+    spare time, I enjoy tinkering with electronics and building and playing
+    video games.
   </>
 )
 
