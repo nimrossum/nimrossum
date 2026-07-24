@@ -457,19 +457,19 @@ export default function Home() {
             </p>
 
             <div className="mt-5 grid grid-cols-[1fr_2fr] items-start gap-y-3 text-sm text-[#eef3df]">
-              <div className="text-[#f0d894]/78">Education:</div>
+              <div className="text-[#f0d894]/78">Education</div>
               <div> MSc. in Computer Science</div>
 
-              <div className="text-[#f0d894]/78">Expertise:</div>
+              <div className="text-[#f0d894]/78">Expertise</div>
               <div>TypeScript/React</div>
 
-              <div className="text-[#f0d894]/78">Location:</div>
+              <div className="text-[#f0d894]/78">Location</div>
               <div> Copenhagen</div>
 
-              <div className="text-[#f0d894]/78">Experience:</div>
+              <div className="text-[#f0d894]/78">Experience</div>
               <div> 4 years professional experience; coding since 2010</div>
 
-              <div className="text-[#f0d894]/78">Email:</div>
+              <div className="text-[#f0d894]/78">Email</div>
               <div className="flex items-center gap-2">
                 <a
                   className="text-[#f0d894] hover:text-white"
