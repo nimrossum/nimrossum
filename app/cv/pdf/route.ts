@@ -1,3 +1,4 @@
+import { compress as compressPdf } from "compress-pdf"
 import { get, put } from "@vercel/blob"
 export const dynamic = "force-dynamic"
 
@@ -72,6 +73,36 @@ async function putPdfInBlobCache(pdfCachePath: string, pdf: Buffer) {
   }
 }
 
+async function compressPdfBuffer(pdf: Buffer, source: string): Promise<Buffer> {
+  try {
+    const compressedPdf = await compressPdf(pdf)
+    const compressedBuffer = Buffer.from(compressedPdf)
+
+    logPdfEvent("Compressed PDF", {
+      source,
+      originalBytes: pdf.length,
+      compressedBytes: compressedBuffer.length,
+      compressionRatio:
+        pdf.length > 0 ? compressedBuffer.length / pdf.length : 0,
+    })
+
+    return compressedBuffer
+  } catch (error) {
+    console.warn("[cv/pdf] PDF compression failed, serving original", {
+      source,
+      error,
+    })
+
+    return pdf
+  }
+}
+
+async function createCompressedPdfResponse(pdf: Buffer, source: string) {
+  const compressedPdf = await compressPdfBuffer(pdf, source)
+
+  return createPdfResponse(compressedPdf, source)
+}
+
 function createPdfResponse(pdf: Buffer, source: string) {
   logPdfEvent("Serving PDF", { source, bytes: pdf.length })
 
@@ -108,7 +139,7 @@ async function getFallbackPdfResponse(
       }
 
       const pdf = Buffer.from(await response.arrayBuffer())
-      return createPdfResponse(pdf, `fallback:${fallbackPdfUrl}`)
+      return createCompressedPdfResponse(pdf, `fallback:${fallbackPdfUrl}`)
     } catch (error) {
       console.warn("[cv/pdf] Fallback PDF request errored", {
         url: fallbackPdfUrl,
@@ -200,7 +231,14 @@ export async function GET(request: Request) {
   if (pdfCachePath) {
     const cachedPdf = await getPdfFromBlobCache(pdfCachePath)
     if (cachedPdf) {
-      return createPdfResponse(cachedPdf, "blob-cache")
+      const compressedCachedPdf = await compressPdfBuffer(
+        cachedPdf,
+        "blob-cache",
+      )
+      if (compressedCachedPdf !== cachedPdf) {
+        await putPdfInBlobCache(pdfCachePath, compressedCachedPdf)
+      }
+      return createPdfResponse(compressedCachedPdf, "blob-cache")
     }
 
     logPdfEvent("Blob cache miss", { pdfCachePath })
@@ -211,10 +249,11 @@ export async function GET(request: Request) {
     logPdfEvent("Trying local Playwright", { sourceUrl })
     const pdf = await renderPdfWithPlaywright(sourceUrl)
     if (pdf) {
+      const compressedPdf = await compressPdfBuffer(pdf, "playwright")
       if (pdfCachePath) {
-        await putPdfInBlobCache(pdfCachePath, pdf)
+        await putPdfInBlobCache(pdfCachePath, compressedPdf)
       }
-      return createPdfResponse(pdf, "playwright")
+      return createPdfResponse(compressedPdf, "playwright")
     }
     console.warn("[cv/pdf] Local Playwright did not return a PDF")
     // If local Playwright fails, fall back to Browserless below
@@ -257,9 +296,10 @@ export async function GET(request: Request) {
   }
 
   const pdf = Buffer.from(await browserlessResponse.arrayBuffer())
+  const compressedPdf = await compressPdfBuffer(pdf, "browserless")
   if (pdfCachePath) {
-    await putPdfInBlobCache(pdfCachePath, pdf)
+    await putPdfInBlobCache(pdfCachePath, compressedPdf)
   }
 
-  return createPdfResponse(pdf, "browserless")
+  return createPdfResponse(compressedPdf, "browserless")
 }

@@ -17,6 +17,7 @@
     "@vercel/blob": "^2.4.1",
     "@vercel/functions": "^3.7.3",
     "clsx": "^2.1.1",
+    "compress-pdf": "^0.6.3",
     "i": "^0.3.7",
     "next": "16.2.9",
     "react": "19.2.7",
