@@ -1,13 +1,10 @@
-import { ReactNode, SVGProps } from "react"
+import { ReactNode } from "react"
 import Image from "next/image"
-import profile from "../profile.jpg"
+import profile from "../profile_smol.jpg"
 import { cn } from "../styling"
 import {
-  AtSymbolIcon,
   ArrowTopRightOnSquareIcon,
   DocumentIcon,
-  BriefcaseIcon,
-  PhoneIcon,
 } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import type { Route } from "next"
@@ -23,6 +20,7 @@ const tech = {
   python: { title: "Python", color: "#3776AB" },
   dotnet: { title: ".NET", color: "#512BD4" },
   csharp: { title: "C#", color: "#239120" },
+  mssql: { title: "MSSQL Server", color: "#CC2927" },
   vue: { title: "Vue", color: "#4FC08D" },
   tailwind: { title: "TailwindCSS", color: "#06B6D4" },
   graphql: { title: "GraphQL", color: "#E10098" },
@@ -95,12 +93,15 @@ const headline = "Full-stack software engineer with strong frontend expertise"
 
 const summary = (
   <>
-    Full-stack software engineer with strong frontend expertise in
-    TypeScript/React. I build polished products end to end, translating complex
-    technical requirements into intuitive, reliable software. I’m a team player
-    and work well in collaborative, high-quality engineering environments. In my
-    spare time, I enjoy tinkering with electronics and building and playing
-    video games.
+    <p>
+      Newly graduated MSc in Computer Science with 4 years of hands-on
+      full-stack engineering experience across Web / TypeScript and .NET / C#.
+    </p>
+    <p>
+      I have taken geospatial and construction apps from concept to production
+      and beyond, turning complex site data into insights via maintainable software for
+      professional users.
+    </p>
   </>
 )
 
@@ -127,17 +128,14 @@ const baseSections: CvSections = {
       description: (
         <ul className="marker:text-aside ml-4 flex list-disc flex-col gap-2">
           <li>
-            Lead developer and maintainer of Git Truck, an open-source developer
-            tool for software visualization and Git repository analysis.
-          </li>
-          <li>
-            Maintain the TypeScript/React architecture for contributor analysis,
-            temporal filtering, repository exploration, and data-heavy D3/DuckDB
-            visualization workflows.
+            Lead developer of an open-source TypeScript/React/Node.js tool for
+            visualizing repository evolution, contributor ownership, and
+            codebase architecture using DuckDB and D3.
           </li>
           <li>
             Migrated from Remix v2 and styled-components to React Router v7,
-            Tailwind CSS v4, Bun, Vite tooling, improving data loading, and longevity of the codebase.
+            Tailwind CSS v4, Bun, and Vite tooling to reduce complexity and
+            improve long-term maintainability.
           </li>
         </ul>
       ),
@@ -158,14 +156,14 @@ const baseSections: CvSections = {
       description: (
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Built React/TypeScript internal tools, uptime dashboards, and
-            operational interfaces for PensionDanmark, improving visibility into
-            system status.
+            Delivered full-stack consultancy solutions between studies, adapting
+            quickly to client codebases, domain workflows, and cross-functional
+            collaboration.
           </li>
           <li>
-            Delivered frontend and full-stack features across dashboards,
-            advisory tools, and backend integrations in close collaboration with
-            client and cross-functional teams.
+            Extended a Life Cycle Assessment platform with COWI and Arkitema,
+            building CO2 dashboards for construction emissions across data
+            pipelines, backend integrations, and UI.
           </li>
         </ul>
       ),
@@ -180,6 +178,7 @@ const baseSections: CvSections = {
         tech.react,
         tech.dotnet,
         tech.csharp,
+        tech.mssql,
         tech.mui,
         tech.gis,
       ],
@@ -189,21 +188,41 @@ const baseSections: CvSections = {
       description: (
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Built full-stack B2B geospatial products with React, TypeScript,
-            Material Design, and .NET/C#, including drone-captured site data,
-            reporting, and inspection workflows.
+            Helped transition Dansk Drone Kompagni from a drone services
+            company into an in-house B2B software provider by conceptually
+            shaping and delivering several inspection tools built around aerial
+            footage.
           </li>
           <li>
-            Integrated serverless processing for map analysis, data exports, and
-            PDF report generation, turning large spatial datasets into practical
-            tools for professional users.
+            Built Ortomatic, a geospatial web
+            application for comparing vector and tiled aerial photogrammetry
+            directly in the browser
           </li>
           <li>
-            Owned features end-to-end across requirements, architecture,
-            frontend, backend, release delivery, and client feedback in a small
-            product-focused team.
+            Delivered monthly surveying for Odense Letbane to compare
+            situational construction plans against high-precision aerial drone
+            footage.
           </li>
         </ul>
+      ),
+    },
+  ],
+
+  "Technical Skills": [
+    {
+      institution: "",
+      tech: [],
+      description: (
+        <div className="flex flex-col gap-1.5">
+          <p>
+            <strong>Languages &amp; Frameworks:</strong> C#/.NET, TypeScript,
+            React, React Router, Next.js, Node.js, MSSQL, Tailwind CSS
+          </p>
+          <p>
+            <strong>Engineering Practices:</strong> End-to-end ownership, CI/CD,
+            Git
+          </p>
+        </div>
       ),
     },
   ],
@@ -221,101 +240,33 @@ const baseSections: CvSections = {
       url: "https://en.itu.dk/Programmes/MSc-Programmes/Computer-Science",
       startYear: "2023",
       endYear: "2026",
-      description: (
-        <ul className="ml-4 list-disc">
-          <li>Focused on software visualization and machine learning.</li>
-        </ul>
-      ),
+      description: null,
     },
     {
       title: "BSc Software Development",
       hoverTitle: "Click to learn more about the program",
       institution: "IT University of Copenhagen",
-      tech: [
-        // tech.dotnet, tech.java, tech.kotlin
-      ],
+      tech: [tech.git, tech.githubActions, tech.android, tech.kotlin],
       url: "https://en.itu.dk/Programmes/BSc-Programmes/Software-Development",
       startYear: "2019",
       endYear: "2023",
-      description: (
-        <ul className="ml-4 flex list-disc flex-col gap-2">
-          <li>
-            Focused on software evolution, maintenance, DevOps, and application
-            development.
-          </li>
-        </ul>
-      ),
+      description: null,
     },
   ],
-  Summary: [
+  Profile: [
     {
       institution: "",
       tech: [],
-      description: <p className="text-xs leading-relaxed">{summary}</p>,
-    },
-  ],
-  "Selected Projects": [
-    {
-      title: "Git Truck",
-      hoverTitle: "Click to view the project on GitHub",
-      institution: "Open Source",
-      url: "https://github.com/git-truck/git-truck",
-      tech: [
-        tech.typescript,
-        tech.react,
-        tech.reactRouter,
-        tech.tailwind,
-        tech.d3,
-        tech.duckdb,
-        tech.nodejs,
-        tech.bun,
-        tech.vite,
-      ],
-      startYear: "2022",
-      endYear: "Present",
-      description: (
-        <ul className="ml-4 flex list-disc flex-col gap-2">
-          <li>
-            Open-source TypeScript/React tool for visualizing Git repository
-            evolution, contributor activity, and codebase structure.
-          </li>
-          <li>
-            Combines Git data processing, DuckDB-backed analysis, and D3
-            visualizations for interactive exploration of large repositories.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: "Speech & Dialogue Systems",
-      hoverTitle: "Speech and dialogue systems project",
-      institution: "Erasmus Exchange Project",
-      tech: [tech.ml],
-      startYear: "2024",
-      endYear: "2024",
-      description: (
-        <ul className="ml-4 flex list-disc flex-col gap-2">
-          <li>
-            Built end-to-end voice interaction prototypes connecting STT,
-            dialogue management, TTS, and speech APIs including ElevenLabs.
-          </li>
-          <li>
-            Addressed real-time voice interface constraints including latency,
-            turn-taking, interruption handling, and robustness to recognition
-            errors in product-like conversational flows.
-          </li>
-        </ul>
-      ),
+      description: <div className="text-xs leading-relaxed">{summary}</div>,
     },
   ],
   Publications: [
     {
-      title: "Git-Truck@Pluck",
+      title: "Git-Truck@Pluck – Contributor-Centric Coordinated Views for Hierarchical Visualization of Git Repository Evolution",
       hoverTitle: "Click to view the publication",
       institution: (
         <>
-          IEEE VISSOFT 2026 &mdash; 14th Working Conference on Software
-          Visualization
+          IEEE VISSOFT 2026 - 14th Working Conference on Software Visualization
         </>
       ),
       tech: [],
@@ -330,8 +281,7 @@ const baseSections: CvSections = {
       hoverTitle: "Click to view the publication",
       institution: (
         <>
-          IEEE VISSOFT 2022 &mdash; 10th Working Conference on Software
-          Visualization
+          IEEE VISSOFT 2022 - 10th Working Conference on Software Visualization
         </>
       ),
       tech: [],
@@ -343,46 +293,12 @@ const baseSections: CvSections = {
   ],
 }
 
-// const summary = (
-//   <>
-//     <p>
-//       Experienced full-stack developer with a strong background in
-//       production-grade tooling and data-heavy interfaces, and developer tooling.
-//     </p>
-//     <p>
-//       Built geospatial software at Dansk Drone Kompagni for drone-based site
-//       data, mapping, and reporting.
-//     </p>
-//     <p>
-//       I enjoy taking ownership of features end-to-end across frontend, backend,
-//       and product collaboration.
-//     </p>
-//   </>
-// )
-
-const skills = [
-  "TypeScript",
-  "React",
-  "C# / .NET",
-  "React Router",
-  "Next.js",
-  "Node.js",
-  "Tailwind CSS",
-  "D3",
-  "GIS / Mapping",
-  "Git",
-  "GitHub Actions",
-  "Vite",
-  "Bun",
-  "DuckDB",
-]
-
 export default function Resume() {
   const sections = baseSections
   const pdfHref = "/cv/pdf"
   const sectionColumns = [
-    ["Summary", "Experience"],
-    ["Selected Projects", "Education", "Publications"],
+    ["Profile", "Experience"],
+    ["Technical Skills", "Education", "Publications"],
   ]
 
   return (
@@ -402,7 +318,7 @@ export default function Resume() {
       <div className="bg-aside mx-auto grid overflow-hidden border-[#3f4c37] shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
         <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
 
-        <header className="bg-aside relative hidden items-center justify-around px-6 [grid-area:header] print:col-span-2 print:flex">
+        <header className="bg-aside relative hidden items-center justify-center gap-x-4 px-6 [grid-area:header] print:col-span-2 print:flex">
           <Image
             src={profile}
             alt="Avatar"
@@ -413,32 +329,29 @@ export default function Resume() {
             )}
           />
           <div className="flex flex-col justify-around gap-4 text-center">
-            <section className="flex items-center justify-center gap-x-8 gap-y-0">
+            <section className="flex items-center justify-center gap-x-8 gap-y-0 pt-4">
               <ContactEntry
                 className="text-xs text-[#eef3df]/70"
                 content="hello@nimrossum.com"
                 url="mailto:hello@nimrossum.com"
-                iconFn={AtSymbolIcon}
               />
               <ContactEntry
                 className="text-xs text-[#eef3df]/70"
                 content="in/jonasnimrossum"
                 url="https://www.linkedin.com/in/jonasnimrossum/"
-                iconFn={BriefcaseIcon}
                 rel="me"
               />
               <ContactEntry
                 className="text-xs text-[#eef3df]/70"
                 content="+45 52 25 13 37"
                 url="tel:+4552251337"
-                iconFn={PhoneIcon}
               />
             </section>
-            <div className="mx-auto max-w-xl pt-2 text-center lg:pr-8">
+            <div className="mx-auto max-w-xl text-center lg:pr-8">
               <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#f2dfad] uppercase">
                 Jonas Nim Røssum
               </h1>
-              <p className="mx-auto mt-3 max-w-72 text-base leading-snug font-extrabold tracking-wider text-pretty text-[#f2dfad]/82">
+              <p className="mx-auto mt-2 max-w-70 text-base leading-snug font-normal tracking-wider text-pretty text-[#f2dfad]/82">
                 {headline}
               </p>
             </div>
@@ -497,14 +410,14 @@ function SectionHeading({
   return (
     <h2
       className={cn(
-        "font-heading flex items-center gap-3 text-[#1f332b]",
+        "font-heading flex items-center gap-3 text-[#7c786a]",
         className,
       )}
     >
-      <div className="h-px flex-1 bg-[#c8c2ad]" />
       <div className="text-lg font-bold tracking-[0.14em] uppercase">
         {title}
       </div>
+      <div className="h-px flex-1 bg-[#c8c2ad]" />
     </h2>
   )
 }
@@ -540,7 +453,7 @@ function EntryHeading({
         {startDate ? (
           <div className="pt-0.5 text-right text-xs font-semibold whitespace-nowrap text-[#8a7b55]">
             {startDate}{" "}
-            {endDate !== startDate ? <>&mdash; {endDate ?? "Present"}</> : null}
+            {endDate !== startDate ? <>- {endDate ?? "Present"}</> : null}
           </div>
         ) : null}
       </div>
@@ -602,24 +515,15 @@ function ContactEntry({
   className,
   content,
   url,
-  iconFn: Icon,
-  iconProps,
   rel,
 }: {
   className?: string
   content: ReactNode
   url: string
-  iconFn: React.FC<SVGProps<SVGSVGElement>>
-  iconProps?: SVGProps<SVGSVGElement>
   rel?: string
 }) {
   return (
     <div className="flex items-center gap-1 leading-1">
-      <Icon
-        className={cn("size-3 opacity-70", className)}
-        aria-hidden="true"
-        {...iconProps}
-      />
       <p>
         <a
           className={className}
