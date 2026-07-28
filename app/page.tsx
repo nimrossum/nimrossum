@@ -270,9 +270,9 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12">
       <section className="mx-auto flex min-h-[calc(100dvh-10rem)] flex-col justify-evenly">
-        <div className="mx-auto w-full max-w-6xl rounded-md border border-[#3f4c37] bg-[#202a22] shadow-2xl shadow-black/25">
-          <div className="relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border border-[#d6b36a]/14 bg-[#202a22] p-6 text-[#eef3df] sm:flex-row sm:items-end lg:min-h-[430px] lg:p-12">
-            <div className="z-10 max-w-3xl lg:ml-[320px]">
+        <div className="bg-aside mx-auto w-full max-w-6xl rounded-md border border-[#3f4c37] shadow-2xl shadow-black/25">
+          <div className="bg-aside relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border border-[#d6b36a]/14 p-6 text-[#eef3df] sm:flex-row sm:items-end lg:min-h-107.5 lg:p-12">
+            <div className="z-10 max-w-3xl lg:ml-80">
               <h1 className="font-heading mb-2 text-4xl leading-none font-bold tracking-tight text-[#f2dfad] sm:text-5xl lg:text-6xl">
                 Jonas Nim Røssum
               </h1>
@@ -434,9 +434,9 @@ export default function Home() {
                             {item.year}
                           </span>
                         </div>
-                        <p className="mt-3 text-sm leading-relaxed text-[#3f423b]">
+                        <div className="mt-3 text-sm leading-relaxed text-[#3f423b]">
                           {item.body}
-                        </p>
+                        </div>
                       </a>
                     </div>
                   )
