@@ -94,13 +94,16 @@ const headline = "Full-stack software engineer with strong frontend expertise"
 const summary = (
   <>
     <p>
-      Newly graduated MSc in Computer Science with 4 years of hands-on
+      Newly graduated MSc in Computer Science with 4 years of professional
       full-stack engineering experience across Web / TypeScript and .NET / C#.
     </p>
     <p>
-      I have taken geospatial and construction apps from concept to production
-      and beyond, turning complex site data into insights via maintainable software for
-      professional users.
+      Full-stack software engineer with strong frontend expertise in
+      TypeScript/React. I build polished products end to end, translating
+      complex technical requirements into intuitive, reliable software. I’m a
+      team player and work well in collaborative, high-quality engineering
+      environments. In my spare time, I enjoy tinkering with electronics and
+      building and playing video games.
     </p>
   </>
 )
@@ -128,14 +131,13 @@ const baseSections: CvSections = {
       description: (
         <ul className="marker:text-aside ml-4 flex list-disc flex-col gap-2">
           <li>
-            Lead developer of an open-source TypeScript/React/Node.js tool for
-            visualizing repository evolution, contributor ownership, and
-            codebase architecture using DuckDB and D3.
+            Lead maintainer of an open-source TypeScript/React/Node.js visulization environment for understanding repository evolution, ownership, and codebase
+            architecture with DuckDB and D3.
           </li>
           <li>
-            Migrated from Remix v2 and styled-components to React Router v7,
-            Tailwind CSS v4, Bun, and Vite tooling to reduce complexity and
-            improve long-term maintainability.
+            Migrated the project from Remix v2 and styled-components to React
+            Router v7, Tailwind CSS v4, Bun, and Vite to improve maintainability
+            and developer experience.
           </li>
         </ul>
       ),
@@ -188,20 +190,15 @@ const baseSections: CvSections = {
       description: (
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Helped transition Dansk Drone Kompagni from a drone services
-            company into an in-house B2B software provider by conceptually
-            shaping and delivering several inspection tools built around aerial
-            footage.
+            Helped transition Dansk Drone Kompagni from a drone services company
+            into an in-house B2B software provider by shaping and delivering
+            inspection products from concept to production.
           </li>
           <li>
-            Built Ortomatic, a geospatial web
-            application for comparing vector and tiled aerial photogrammetry
-            directly in the browser
-          </li>
-          <li>
-            Delivered monthly surveying for Odense Letbane to compare
-            situational construction plans against high-precision aerial drone
-            footage.
+            Built Ortomatic, a geospatial web application for comparing vector
+            and tiled aerial photogrammetry directly in the browser, including
+            monthly surveying for Odense Letbane against high-precision aerial
+            drone footage.
           </li>
         </ul>
       ),
@@ -215,12 +212,15 @@ const baseSections: CvSections = {
       description: (
         <div className="flex flex-col gap-1.5">
           <p>
-            <strong>Languages &amp; Frameworks:</strong> C#/.NET, TypeScript,
-            React, React Router, Next.js, Node.js, MSSQL, Tailwind CSS
+            <strong>Frontend:</strong> React, TypeScript, React Router, Next.js,
+            Tailwind CSS, HTML, CSS, Accessibility
           </p>
           <p>
-            <strong>Engineering Practices:</strong> End-to-end ownership, CI/CD,
-            Git
+            <strong>Tooling:</strong> Node.js, Bun, Vite, npm, Git, CI/CD,
+            Playwright, Cypress
+          </p>
+          <p>
+            <strong>Backend:</strong> C#/.NET, MSSQL
           </p>
         </div>
       ),
@@ -352,7 +352,7 @@ export default function Resume() {
               <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#f2dfad] uppercase">
                 Jonas Nim Røssum
               </h1>
-              <p className="mx-auto mt-2 max-w-70 text-base leading-snug font-normal tracking-wider text-pretty text-[#f2dfad]/82">
+              <p className="mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty text-[#f2dfad]/82">
                 {headline}
               </p>
             </div>
