@@ -19,6 +19,16 @@ export default function Home() {
 
   const experiences = [
     {
+      year: "2026",
+      category: "Publications & Talks",
+      title:
+        "Git-Truck@Pluck – Contributor-Centric Coordinated Views for Hierarchical Visualization of Git Repository Evolution",
+
+      role: "Co-Author",
+      body: "Co-authored and published research on contributor-centric visualization of Git repository structures.",
+      href: "https://raw.githubusercontent.com/git-truck/papers/master/Git-Truck@Pluck%20–%20Contributor-Centric%20Coordinated%20Views%20for%20Hierarchical%20Visualization%20of%20Git%20Repository%20Evolution.pdf",
+    },
+    {
       year: "2024 — 2026",
       category: "Open Source",
       title: "Git Truck (v3 + v4)",
