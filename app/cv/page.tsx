@@ -262,7 +262,8 @@ const baseSections: CvSections = {
   ],
   Publications: [
     {
-      title: "Git-Truck@Pluck – Contributor-Centric Coordinated Views for Hierarchical Visualization of Git Repository Evolution",
+      title:
+        "Git-Truck@Pluck – Contributor-Centric Coordinated Views for Hierarchical Visualization of Git Repository Evolution",
       hoverTitle: "Click to view the publication",
       institution: (
         <>
@@ -270,7 +271,7 @@ const baseSections: CvSections = {
         </>
       ),
       tech: [],
-      url: "https://vissoft.io/2026/index.html",
+      url: "https://raw.githubusercontent.com/git-truck/papers/master/Git-Truck@Pluck%20–%20Contributor-Centric%20Coordinated%20Views%20for%20Hierarchical%20Visualization%20of%20Git%20Repository%20Evolution.pdf",
       startYear: "2026",
       endYear: "2026",
       description: null,
