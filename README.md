@@ -5,6 +5,7 @@
 <a href="mailto:hello@nimrossum.com"><img src="https://img.shields.io/badge/Email-hello@nimrossum.com-stone?style=for-the-badge&logo=minutemailer" alt="Email" /></a>
 
 **Product-minded Full Stack Developer focused on clear UX and data-heavy web interfaces.**
+
 _Based in Copenhagen | Coding since 2010 | 4 years professional experience_
 
 I like tight feedback loops and shipping useful tools. My expertise lies primarily in **TypeScript and React**, with experience spanning web applications, data visualization, and machine learning.
