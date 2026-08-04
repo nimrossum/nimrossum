@@ -13,7 +13,7 @@ I like tight feedback loops and shipping useful tools. My expertise lies primari
 ## 🎓 Background
 
 - **Education:** MSc. in Computer Science (IT University of Copenhagen)
-- **Currently:** Thesis Researcher & Lead Maintainer at [Git Truck](https://github.com/git-truck/git-truck)
+- **Currently:** Lead Maintainer at [Git Truck](https://github.com/git-truck/git-truck)
 
 ---
 
