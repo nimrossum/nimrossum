@@ -361,7 +361,7 @@ export default function Resume() {
   const pdfHref = "/cv/pdf"
 
   return (
-    <>
+    <div className="cv-page">
       <div className="cv-actions mx-auto mb-4 flex max-w-[1120px] justify-end print:hidden">
         <Link
           target="_blank"
@@ -488,7 +488,7 @@ export default function Resume() {
           </aside>
         </main>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -55,6 +55,26 @@ body {
   background: var(--background);
 }
 
+body:has(.cv-page),
+body:has(.cv-page) > .theme-page,
+body:has(.cv-page) > .theme-page > div {
+  background: var(--cv-paper, #f2f5f3);
+}
+
+body:has(.cv-page) > .theme-page > div {
+  max-width: none;
+  padding: 0;
+}
+
+body:has(.cv-page) header.py-2,
+body:has(.cv-page) > .theme-page > footer {
+  display: none;
+}
+
+body:has(.cv-page) main {
+  margin-top: 0;
+}
+
 .theme-panel {
   background: var(--panel);
 }
@@ -304,7 +324,7 @@ body {
   letter-spacing: -0.006em;
   color: var(--cv-ink);
   background: var(--cv-paper);
-  border: 1px solid color-mix(in srgb, var(--cv-slate) 22%, transparent);
+  border: 0;
   box-shadow: 0 24px 70px rgb(0 0 0 / 18%);
 }
 
