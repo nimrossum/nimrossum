@@ -24,6 +24,7 @@ export default function Home() {
       title: "Dalux",
       role: "Software Developer • Agentic AI / DevOps / TypeScript / AngularJS / .NET",
       body: "Developing software at Dalux with agentic AI, DevOps, TypeScript, AngularJS, and .NET.",
+      href: "https://www.dalux.com/",
     },
     {
       year: "2026",
@@ -278,8 +279,8 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12">
       <section className="mx-auto flex min-h-[calc(100dvh-10rem)] flex-col justify-evenly">
-        <div className="theme-panel mx-auto w-full max-w-6xl rounded-md border theme-panel-border shadow-2xl shadow-black/25">
-          <div className="theme-panel relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border theme-accent-border p-6 text-[var(--foreground)] sm:flex-row sm:items-end lg:min-h-107.5 lg:p-12">
+        <div className="theme-panel theme-panel-border mx-auto w-full max-w-6xl rounded-md border shadow-2xl shadow-black/25">
+          <div className="theme-panel theme-accent-border relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border p-6 text-[var(--foreground)] sm:flex-row sm:items-end lg:min-h-107.5 lg:p-12">
             <div className="z-10 max-w-3xl lg:ml-80">
               <h1 className="font-heading theme-accent-heading mb-2 text-4xl leading-none font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Jonas Nim Røssum
@@ -303,7 +304,7 @@ export default function Home() {
                   target="_blank"
                   prefetch="auto"
                   href={"/cv/pdf" as Route}
-                  className="theme-panel-alt flex items-center gap-2 rounded-sm border theme-accent-border px-5 py-3 text-sm font-bold theme-accent-heading transition hover:text-white"
+                  className="theme-panel-alt theme-accent-border theme-accent-heading flex items-center gap-2 rounded-sm border px-5 py-3 text-sm font-bold transition hover:text-white"
                 >
                   <DocumentTextIcon className="size-5" />
                   CV (PDF)
@@ -312,7 +313,7 @@ export default function Home() {
                   <a
                     target="_blank"
                     href="mailto:hello@nimrossum.com"
-                    className="theme-offset-button group relative flex items-center gap-2 rounded-sm border theme-accent-border bg-[var(--accent-muted)] px-5 py-3 text-sm font-bold text-[var(--panel)] transition-all duration-200 ease-out before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:translate-x-0 before:translate-y-0 before:transform before:rounded-sm before:border before:transition-all before:duration-200 before:ease-out before:will-change-transform hover:bg-white hover:shadow-[0_10px_24px_rgba(0,0,0,0.22)] hover:before:translate-x-2 hover:before:translate-y-2"
+                    className="theme-offset-button group theme-accent-border relative flex items-center gap-2 rounded-sm border bg-[var(--accent-muted)] px-5 py-3 text-sm font-bold text-[var(--panel)] transition-all duration-200 ease-out before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:translate-x-0 before:translate-y-0 before:transform before:rounded-sm before:border before:transition-all before:duration-200 before:ease-out before:will-change-transform hover:bg-white hover:shadow-[0_10px_24px_rgba(0,0,0,0.22)] hover:before:translate-x-2 hover:before:translate-y-2"
                   >
                     <EnvelopeIcon className="size-5" />
                     Get in touch
@@ -349,7 +350,7 @@ export default function Home() {
         className="grid gap-6 lg:grid-cols-[1.35fr_0.85fr] lg:grid-rows-[auto_1fr] lg:items-start"
         id="projects"
       >
-        <div className="theme-panel order-2 rounded-md border theme-panel-border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+        <div className="theme-panel theme-panel-border order-2 rounded-md border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <div className="px-6 py-6 lg:px-7">
             <h2 className="font-heading theme-accent mb-3 text-xl leading-loose font-bold tracking-[0.12em] uppercase">
               Selected Work & Projects
@@ -369,7 +370,7 @@ export default function Home() {
                       className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
                         filter === cat
                           ? `border ${style.activeBorder} ${style.activeBg} ${style.activeText} ${style.activeShadow}`
-                          : "theme-accent-link border theme-accent-border bg-white/5 theme-muted"
+                          : "theme-accent-link theme-accent-border theme-muted border bg-white/5"
                       }`}
                     >
                       {cat}
@@ -377,7 +378,7 @@ export default function Home() {
                         className={`rounded-full px-1.5 py-0.5 text-[10px] leading-none transition-colors ${
                           filter === cat
                             ? `${style.badgeActiveBg} ${style.badgeActiveText}`
-                            : "bg-white/10 theme-muted"
+                            : "theme-muted bg-white/10"
                         }`}
                       >
                         {count}
@@ -454,7 +455,7 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="theme-panel order-1 rounded-md border theme-panel-border shadow-md shadow-black/20 lg:col-start-2 lg:row-start-1">
+        <aside className="theme-panel theme-panel-border order-1 rounded-md border shadow-md shadow-black/20 lg:col-start-2 lg:row-start-1">
           <div className="px-6 py-6 lg:px-7">
             <h2 className="font-heading theme-accent text-lg font-bold tracking-[0.12em] uppercase">
               About me
@@ -505,7 +506,7 @@ export default function Home() {
           </div>
         </aside>
 
-        <aside className="theme-panel order-3 rounded-md border theme-panel-border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-2 lg:row-start-2 lg:self-start">
+        <aside className="theme-panel theme-panel-border order-3 rounded-md border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-2 lg:row-start-2 lg:self-start">
           <div className="px-6 py-6 lg:px-7">
             <div className="flex items-center justify-between gap-2">
               <h2 className="font-heading theme-accent text-lg font-bold tracking-[0.12em] uppercase">

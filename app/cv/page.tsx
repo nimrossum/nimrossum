@@ -114,6 +114,7 @@ const baseSections: CvSections = {
       title: "Software Developer",
       hoverTitle: "Currently working at Dalux",
       institution: "Dalux",
+      url: "https://www.dalux.com/",
       tech: [
         tech.agenticAi,
         tech.devops,
@@ -358,109 +359,133 @@ const baseSections: CvSections = {
 export default function Resume() {
   const sections = baseSections
   const pdfHref = "/cv/pdf"
-  const sectionColumns = [
-    ["Profile", "Experience"],
-    ["Skills", "Education", "Publications"],
-  ]
 
   return (
     <>
-      <div className="mx-auto mb-4 flex max-w-[calc(250px+60ch)] justify-end print:hidden">
+      <div className="cv-actions mx-auto mb-4 flex max-w-[1120px] justify-end print:hidden">
         <Link
           target="_blank"
           prefetch="auto"
           href={pdfHref as Route}
-          className="theme-panel-alt theme-accent-border theme-accent-heading mx-auto flex w-fit items-center gap-2 rounded border px-3 py-2 text-sm font-bold transition-colors"
+          className="cv-pdf-link flex w-fit items-center gap-2"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
-          PDF version
+          Printable CV
         </Link>
       </div>
-      <div className="theme-cv-shell theme-panel mx-auto grid overflow-hidden border shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
-        <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
-
-        <header className="bg-aside relative hidden items-center justify-center gap-x-4 px-6 [grid-area:header] print:col-span-2 print:flex">
-          <Image
-            src={profile}
-            alt="Avatar"
-            loading="eager"
-            priority
-            className={cn(
-              "theme-cv-header-border z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 object-cover shadow-xl shadow-black/25",
-            )}
-          />
-          <div className="flex flex-col justify-around gap-4 text-center">
-            <section className="flex items-center justify-center gap-x-8 gap-y-0 pt-4">
+      <div className="cv-shell mx-auto max-w-[1120px]">
+        <header className="cv-hero">
+          <div className="cv-hero-copy">
+            <p className="cv-kicker">Software engineer · Copenhagen</p>
+            <h1>Jonas Nim Røssum</h1>
+            <p className="cv-positioning">
+              Full-stack engineer building visual, data-heavy tools.
+            </p>
+            <p className="cv-intro">
+              I build polished, reliable products end to end, focusing on
+              frontend quality, data-heavy interfaces, and practical AI
+              integrations.
+            </p>
+            <div className="cv-contact-row" aria-label="Contact links">
               <ContactEntry
-                className="theme-muted text-xs"
                 content="hello@nimrossum.com"
                 url="mailto:hello@nimrossum.com"
               />
               <ContactEntry
-                className="theme-muted text-xs"
-                content="in/jonasnimrossum"
+                content="LinkedIn"
                 url="https://www.linkedin.com/in/jonasnimrossum/"
                 rel="me"
               />
               <ContactEntry
-                className="theme-muted text-xs"
-                content="+45 52 25 13 37"
-                url="tel:+4552251337"
+                content="GitHub"
+                url="https://github.com/nimrossum"
               />
-            </section>
-            <div className="mx-auto max-w-xl text-center lg:pr-8">
-              <h1 className="font-heading theme-cv-header text-5xl leading-none font-bold tracking-tighter uppercase">
-                Jonas Nim Røssum
-              </h1>
-              <p className="theme-cv-header mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty">
-                {headline}
-              </p>
             </div>
           </div>
+          <Image
+            src={profile}
+            alt="Portrait of Jonas Nim Røssum"
+            loading="eager"
+            priority
+            className="cv-portrait"
+          />
         </header>
 
-        <main className="theme-cv-main relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t p-4 [grid-area:main] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-4 print:grid-cols-2 print:gap-5 print:rounded-xl print:p-4 print:text-[14px] print:leading-snug">
-          {sectionColumns.map((column, columnIndex) => (
-            <div key={columnIndex} className="flex flex-col gap-10 print:gap-5">
-              {column.map((sectionHeading) => {
-                const entries = sections[sectionHeading]
+        <main className="cv-content">
+          <div className="cv-primary">
+            <section className="cv-section cv-experience">
+              <SectionHeading title="Experience" />
+              <div className="cv-experience-grid">
+                {sections.Experience.map((item, index) => (
+                  <div className="cv-experience-row" key={index}>
+                    <a
+                      className="cv-signal-node"
+                      href={`#experience-${index}`}
+                      aria-label={`${item.startYear} ${item.title} at ${item.institution}`}
+                    >
+                      <span className="cv-signal-dot" aria-hidden="true" />
+                      <span className="cv-signal-year">{item.startYear}</span>
+                    </a>
+                    <article className="cv-entry" id={`experience-${index}`}>
+                      <EntryHeading
+                        title={item.title}
+                        institution={item.institution}
+                        url={item.url}
+                        startDate={item.startYear}
+                        endDate={item.endYear}
+                      />
+                      <div className="theme-cv-body cv-entry-body">
+                        {item.description}
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-                return (
-                  <section
-                    key={sectionHeading}
-                    className="relative flex flex-col gap-2"
-                  >
-                    <SectionHeading title={sectionHeading} />
-                    <section className="flex flex-col gap-6 print:gap-4">
-                      {entries.map((item, index) => (
-                        <div key={index}>
-                          {item.title ? (
-                            <EntryHeading
-                              className={
-                                sectionHeading === "Experience"
-                                  ? "mb-3 print:mb-1"
-                                  : ""
-                              }
-                              title={item.title}
-                              institution={item.institution}
-                              url={item.url}
-                              startDate={item.startYear}
-                              endDate={item.endYear}
-                            />
-                          ) : null}
-                          {/* <EntryTech tech={item.tech} /> */}
-                          <div className="theme-cv-body text-xs leading-relaxed">
-                            {item.description}
-                          </div>
-                        </div>
-                      ))}
-                    </section>
-                  </section>
-                )
-              })}
-            </div>
-          ))}
+            <section className="cv-section cv-publications">
+              <SectionHeading title="Publications" />
+              <div className="cv-entry-list cv-compact-list">
+                {sections.Publications.map((item, index) => (
+                  <article className="cv-entry" key={index}>
+                    <EntryHeading
+                      title={item.title}
+                      institution={item.institution}
+                      url={item.url}
+                      startDate={item.startYear}
+                      endDate={item.endYear}
+                    />
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <aside className="cv-secondary">
+            <section className="cv-section">
+              <SectionHeading title="Capabilities" />
+              <div className="cv-capabilities">
+                {sections.Skills[0].description}
+              </div>
+            </section>
+            <section className="cv-section">
+              <SectionHeading title="Education" />
+              <div className="cv-entry-list cv-compact-list">
+                {sections.Education.map((item, index) => (
+                  <article className="cv-entry" key={index}>
+                    <EntryHeading
+                      title={item.title}
+                      institution={item.institution}
+                      url={item.url}
+                      startDate={item.startYear}
+                      endDate={item.endYear}
+                    />
+                  </article>
+                ))}
+              </div>
+            </section>
+          </aside>
         </main>
       </div>
     </>
@@ -475,16 +500,9 @@ function SectionHeading({
   title: string
 }) {
   return (
-    <h2
-      className={cn(
-        "font-heading theme-cv-heading flex items-center gap-3",
-        className,
-      )}
-    >
-      <div className="text-lg font-bold tracking-[0.14em] uppercase">
-        {title}
-      </div>
-      <div className="theme-cv-heading-line h-px flex-1" />
+    <h2 className={cn("cv-section-heading", className)}>
+      <span>{title}</span>
+      <div className="cv-section-rule" />
     </h2>
   )
 }
@@ -505,20 +523,13 @@ function EntryHeading({
   endDate?: string | number
 }) {
   return (
-    <div
-      className={cn(
-        "mt-4 mb-2 justify-between gap-4 print:mt-1 print:mb-0",
-        className,
-      )}
-    >
-      <div className="flex justify-between">
+    <div className={cn("cv-entry-heading", className)}>
+      <div className="cv-entry-title-row">
         <h3>
-          <span className="font-heading theme-cv-heading text-sm leading-tight font-bold">
-            {title}
-          </span>
+          <span className="cv-entry-title">{title}</span>
         </h3>
         {startDate ? (
-          <div className="theme-cv-accent pt-0.5 text-right text-xs font-semibold whitespace-nowrap">
+          <div className="cv-entry-date">
             {startDate}{" "}
             {endDate !== startDate ? <>- {endDate ?? "Present"}</> : null}
           </div>
@@ -526,27 +537,19 @@ function EntryHeading({
       </div>
       {url ? (
         <a
-          className="theme-cv-link group flex w-fit items-start justify-start gap-2 text-[var(--ink)] transition-colors"
+          className="cv-entry-institution group"
           href={url}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="flex flex-col">
-            <span className="theme-cv-muted mt-0.5 text-sm leading-snug">
-              {institution}
-            </span>
-          </div>
+          <span>{institution}</span>
           <ArrowTopRightOnSquareIcon
-            className="theme-cv-accent mt-0.5 inline-flex size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            className="cv-entry-arrow inline-flex size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             aria-hidden="true"
           />
         </a>
       ) : (
-        <div className="flex flex-col">
-          <span className="theme-cv-muted mt-0.5 text-sm leading-snug">
-            {institution}
-          </span>
-        </div>
+        <span className="cv-entry-institution">{institution}</span>
       )}
     </div>
   )

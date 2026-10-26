@@ -1,5 +1,6 @@
 import { compress as compressPdf } from "compress-pdf"
 import { get, put } from "@vercel/blob"
+import type { Browser } from "playwright"
 export const dynamic = "force-dynamic"
 
 const PDF_HEADERS = {
@@ -156,25 +157,87 @@ async function getFallbackPdfResponse(
 async function renderPdfWithPlaywright(
   sourceUrl: string,
 ): Promise<Buffer | null> {
+  let browser: Browser | null = null
+
   try {
     const { chromium } = await import("playwright")
-    const browser = await chromium.launch()
+    browser = await chromium.launch()
     const page = await browser.newPage()
 
-    await page.goto(sourceUrl, { waitUntil: "networkidle" })
+    await page.goto(sourceUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: 15_000,
+    })
+    await page.evaluate(() => document.fonts?.ready)
+    await page.emulateMedia({ media: "screen" })
+    await page.addStyleTag({
+      content: `
+        header:not(.cv-hero),
+        footer,
+        .cv-actions {
+          display: none !important;
+        }
+
+        html,
+        body,
+        .theme-page {
+          background: #f2f5f3 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: 0 !important;
+        }
+
+        body {
+          position: relative;
+          top: -1px;
+        }
+
+        .theme-page {
+          background: #f2f5f3 !important;
+        }
+
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        .theme-page > div {
+          max-width: none !important;
+          width: 100% !important;
+          padding: 0 !important;
+        }
+
+        .theme-page main {
+          margin-top: 0 !important;
+        }
+
+        .cv-shell {
+          width: 100% !important;
+          max-width: none !important;
+          margin: 0 !important;
+          border: 0 !important;
+          box-shadow: none !important;
+        }
+      `,
+    })
 
     const pdf = await page.pdf({
       format: "A4",
+      margin: {
+        top: "0",
+        right: "0",
+        bottom: "0",
+        left: "0",
+      },
       printBackground: true,
     })
-
-    await browser.close()
 
     return Buffer.from(pdf)
   } catch (error) {
     console.error("Error occurred while rendering PDF with Playwright:", error)
-    // Playwright not available
     return null
+  } finally {
+    await browser?.close()
   }
 }
 

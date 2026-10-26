@@ -1,6 +1,6 @@
 import { Nav } from "./nav"
 import type { Metadata } from "next"
-import { Inter, Outfit, Roboto } from "next/font/google"
+import { Inter, Outfit, DM_Sans } from "next/font/google"
 import "./globals.css"
 import { cn } from "./styling"
 
@@ -16,10 +16,10 @@ const outfit = Outfit({
   display: "swap",
 })
 
-const roboto = Roboto({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-roboto",
-  weight: ["400", "700"],
+  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 })
 
@@ -39,7 +39,7 @@ export default function RootLayout({
       className={cn(
         inter.variable,
         outfit.variable,
-        roboto.variable,
+        dmSans.variable,
         "antialiased",
       )}
     >
