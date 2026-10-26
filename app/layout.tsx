@@ -1,6 +1,6 @@
 import { Nav } from "./nav"
 import type { Metadata } from "next"
-import { Inter, Outfit } from "next/font/google"
+import { Inter, Outfit, Roboto } from "next/font/google"
 import "./globals.css"
 import { cn } from "./styling"
 
@@ -13,6 +13,13 @@ const inter = Inter({
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
+  display: "swap",
+})
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["400", "700"],
   display: "swap",
 })
 
@@ -29,7 +36,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(inter.variable, outfit.variable, "antialiased")}
+      className={cn(
+        inter.variable,
+        outfit.variable,
+        roboto.variable,
+        "antialiased",
+      )}
     >
       <head>
         <link

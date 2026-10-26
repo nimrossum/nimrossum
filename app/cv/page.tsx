@@ -94,16 +94,16 @@ const headline = "Full-stack software engineer with strong frontend expertise"
 const summary = (
   <>
     <p>
-      Newly graduated MSc in Computer Science with 4 years of professional
-      full-stack engineering experience across Web / TypeScript and .NET / C#.
+      4.5 years of professional full-stack engineering experience across Web /
+      TypeScript and .NET / C#.
     </p>
     <p>
-      Full-stack software engineer with strong frontend expertise in
-      TypeScript/React. I build polished products end to end, translating
-      complex technical requirements into intuitive, reliable software. I’m a
-      team player and work well in collaborative, high-quality engineering
-      environments. In my spare time, I enjoy tinkering with electronics and
-      building and playing video games.
+      Full-stack software engineer with strong expertise in Full-stack
+      TypeScript / React / AI SDK. I build polished products end to end,
+      translating complex technical requirements into intuitive, reliable
+      software that users enjoy using. I’m a team player and work well in collaborative, high-quality
+      engineering environments. In my spare time, I enjoy tinkering with
+      electronics and building and playing video games.
     </p>
   </>
 )
@@ -129,10 +129,11 @@ const baseSections: CvSections = {
       startYear: "2022",
       endYear: "Present",
       description: (
-        <ul className="marker:text-aside ml-4 flex list-disc flex-col gap-2">
+        <ul className="ml-4 flex list-disc flex-col gap-2 marker:text-[#55745d]">
           <li>
-            Lead maintainer of an open-source TypeScript/React/Node.js visulization environment for understanding repository evolution, ownership, and codebase
-            architecture with DuckDB and D3.
+            Lead maintainer of an open-source TypeScript/React/Node.js
+            visualization environment for understanding repository evolution,
+            ownership, and codebase architecture with DuckDB and D3.
           </li>
           <li>
             Migrated the project from Remix v2 and styled-components to React
@@ -200,6 +201,10 @@ const baseSections: CvSections = {
             monthly surveying for Odense Letbane against high-precision aerial
             drone footage.
           </li>
+          <li>
+            Worked systematically with Git, pull requests, CI/CD, and coding
+            standards while developing the B2B products.
+          </li>
         </ul>
       ),
     },
@@ -210,17 +215,58 @@ const baseSections: CvSections = {
       institution: "",
       tech: [],
       description: (
-        <div className="flex flex-col gap-1.5">
-          <p>
-            <strong>Frontend:</strong> React, TypeScript, React Router, Next.js,
-            Tailwind CSS, HTML, CSS, Accessibility
-          </p>
-          <p>
-            <strong>Tooling:</strong> Node.js, Bun, Vite, npm, Git, CI/CD,
-            Playwright, Cypress
-          </p>
-          <p>
-            <strong>Backend:</strong> C#/.NET, MSSQL
+        <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5">
+          <strong>Frontend</strong>
+          <span>
+            <span className="font-semibold text-[#456c52]">HTML</span> ·{" "}
+            <span className="font-semibold text-[#456c52]">CSS</span> ·
+            JavaScript ·{" "}
+            <span className="font-semibold text-[#456c52]">TypeScript</span> ·{" "}
+            <span className="font-semibold text-[#456c52]">React</span> · React
+            Router ·{" "}
+            <span className="font-semibold text-[#456c52]">Next.js</span> ·{" "}
+            <span className="font-semibold text-[#456c52]">Tailwind CSS</span> ·
+            Accessibility
+          </span>
+          <strong>Working Practices</strong>
+          <span>
+            <span className="font-semibold text-[#456c52]">Git</span> ·{" "}
+            <span className="font-semibold text-[#456c52]">GitHub</span> · Pull
+            Requests · Code Review
+          </span>
+          <strong>Testing and Verification</strong>
+          <span>
+            CI/CD · GitHub Actions ·{" "}
+            <span className="font-semibold text-[#456c52]">Playwright</span>
+          </span>
+          <strong>Backend and Data</strong>
+          <span>
+            Node.js · C#/.NET · MSSQL · GraphQL ·{" "}
+            <span style={{ fontKerning: "none" }}>APIs</span> · Integrations ·
+            Data flows
+          </span>
+          <strong>AI-Assisted Development</strong>
+          <span>
+            <span className="font-semibold text-[#456c52]">GitHub Copilot</span>{" "}
+            · Claude ·{" "}
+            <span className="font-semibold text-[#456c52]">Codex</span>
+          </span>
+          <strong>AI Integrations</strong>
+          <span>
+            AI SDK ·{" "}
+            <span className="font-semibold text-[#456c52]">OpenAI API</span>
+          </span>
+          <strong>Cloud and Deployment</strong>
+          <span>
+            DevOps ·{" "}
+            <span className="font-semibold text-[#456c52]">Vercel</span> ({" "}
+            <span className="font-semibold text-[#456c52]">Serverless</span>,{" "}
+            <span className="font-semibold text-[#456c52]">Blob Storage</span>{" "}
+            and Redis) · DigitalOcean (.NET and MSSQL) · Supabase (Postgres)
+          </span>
+          <p className="col-span-2 mt-1 text-[11px] text-[#625c58] italic">
+            Highlighted technologies were used to build and generate this
+            resume.
           </p>
         </div>
       ),
@@ -257,7 +303,7 @@ const baseSections: CvSections = {
     {
       institution: "",
       tech: [],
-      description: <div className="text-xs leading-relaxed">{summary}</div>,
+      description: <div className="text-[13px] leading-relaxed">{summary}</div>,
     },
   ],
   Publications: [
@@ -309,7 +355,7 @@ export default function Resume() {
           target="_blank"
           prefetch="auto"
           href={pdfHref as Route}
-          className="mx-auto flex w-fit items-center gap-2 rounded border border-[#d6b36a]/30 bg-[#1f261c] px-3 py-2 text-sm font-bold text-[#f0d894] transition-colors hover:border-[#f0d894] hover:bg-[#283322] hover:text-white"
+          className="mx-auto flex w-fit items-center gap-2 rounded border border-[#d6b36a]/30 bg-[#1f261c] px-3 py-2 text-sm font-bold text-white transition-colors hover:border-[#d6b36a] hover:bg-[#283322]"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
@@ -349,10 +395,10 @@ export default function Resume() {
               />
             </section>
             <div className="mx-auto max-w-xl text-center lg:pr-8">
-              <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#f2dfad] uppercase">
+              <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#b8d5bc] uppercase">
                 Jonas Nim Røssum
               </h1>
-              <p className="mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty text-[#f2dfad]/82">
+              <p className="mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty text-[#b8d5bc]/82">
                 {headline}
               </p>
             </div>
@@ -411,7 +457,7 @@ function SectionHeading({
   return (
     <h2
       className={cn(
-        "font-heading flex items-center gap-3 text-[#7c786a]",
+        "font-heading flex items-center gap-3 text-[#456c52]",
         className,
       )}
     >
@@ -447,7 +493,7 @@ function EntryHeading({
     >
       <div className="flex justify-between">
         <h3>
-          <span className="font-heading text-sm leading-tight font-bold">
+          <span className="font-heading text-sm leading-tight font-bold text-[#456c52]">
             {title}
           </span>
         </h3>
