@@ -210,6 +210,63 @@ body {
   border-color: var(--surface);
 }
 
+.theme-cv-shell {
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.theme-cv-main {
+  border-color: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+@media screen {
+  .theme-cv-shell {
+    background: transparent;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .theme-cv-main {
+    background: var(--panel);
+    color: var(--foreground);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .theme-cv-main .theme-cv-body {
+    color: color-mix(in srgb, var(--foreground) 84%, transparent);
+  }
+
+  .theme-cv-main .theme-cv-muted {
+    color: color-mix(in srgb, var(--foreground) 68%, transparent);
+  }
+
+  .theme-cv-main .theme-cv-heading {
+    color: var(--accent);
+  }
+
+  .theme-cv-main .theme-cv-heading-line {
+    background: color-mix(in srgb, var(--accent) 38%, transparent);
+  }
+
+  .theme-cv-main .theme-cv-accent {
+    color: var(--accent-muted);
+  }
+
+  .theme-cv-main .theme-cv-link {
+    color: var(--foreground);
+  }
+
+  .theme-cv-main .theme-cv-link:hover {
+    color: var(--accent);
+  }
+
+  .theme-cv-main .theme-cv-marker::marker {
+    color: var(--accent);
+  }
+}
+
 .theme-offset-button::before {
   border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }

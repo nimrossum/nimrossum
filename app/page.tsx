@@ -19,6 +19,13 @@ export default function Home() {
 
   const experiences = [
     {
+      year: "2026 — Present",
+      category: "Professional",
+      title: "Dalux",
+      role: "Software Developer • Agentic AI / DevOps / TypeScript / AngularJS / .NET",
+      body: "Developing software at Dalux with agentic AI, DevOps, TypeScript, AngularJS, and .NET.",
+    },
+    {
       year: "2026",
       category: "Publications & Talks",
       title:

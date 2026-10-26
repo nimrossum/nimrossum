@@ -24,6 +24,10 @@ const tech = {
   vue: { title: "Vue", color: "#4FC08D" },
   tailwind: { title: "TailwindCSS", color: "#06B6D4" },
   graphql: { title: "GraphQL", color: "#E10098" },
+  angularjs: { title: "AngularJS", color: "#DD0031" },
+  scrum: { title: "Scrum", color: "#2F80ED" },
+  agenticAi: { title: "Agentic AI Development", color: "#7C3AED" },
+  devops: { title: "DevOps", color: "#2496ED" },
   docker: { title: "Docker", color: "#2496ED" },
   mui: { title: "Material UI", color: "#007FFF" },
   gis: { title: "GIS", color: "#2E7D32" },
@@ -110,6 +114,29 @@ const summary = (
 
 const baseSections: CvSections = {
   Experience: [
+    {
+      title: "Software Developer",
+      hoverTitle: "Currently working at Dalux",
+      institution: "Dalux",
+      tech: [
+        tech.agenticAi,
+        tech.devops,
+        tech.typescript,
+        tech.angularjs,
+        tech.dotnet,
+        tech.scrum,
+      ],
+      startYear: "2026",
+      endYear: "Present",
+      description: (
+        <ul className="ml-4 flex list-disc flex-col gap-2">
+          <li>
+            Developing software at Dalux with agentic AI, DevOps, TypeScript,
+            AngularJS, and .NET as part of a Scrum team.
+          </li>
+        </ul>
+      ),
+    },
     {
       title: "Open Source Maintainer",
       hoverTitle: "Click to view the project on GitHub",
@@ -362,7 +389,7 @@ export default function Resume() {
           PDF version
         </Link>
       </div>
-      <div className="theme-panel mx-auto grid overflow-hidden border theme-panel-border shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
+      <div className="theme-cv-shell theme-panel mx-auto grid overflow-hidden border shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
         <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
 
         <header className="bg-aside relative hidden items-center justify-center gap-x-4 px-6 [grid-area:header] print:col-span-2 print:flex">
