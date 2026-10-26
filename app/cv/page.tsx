@@ -98,16 +98,12 @@ const headline = "Full-stack software engineer with strong frontend expertise"
 const summary = (
   <>
     <p>
-      4.5 years of professional full-stack engineering experience across Web /
-      TypeScript and .NET / C#.
+      Full-stack software engineer with 4.5 years of professional experience
+      across TypeScript and .NET / C#.
     </p>
     <p>
-      Full-stack software engineer with strong expertise in Full-stack
-      TypeScript / React / AI SDK. I build polished products end to end,
-      translating complex technical requirements into intuitive, reliable
-      software that users enjoy using. I’m a team player and work well in collaborative, high-quality
-      engineering environments. In my spare time, I enjoy tinkering with
-      electronics and building and playing video games.
+      I build polished, reliable products end to end, focusing on frontend
+      quality, data-heavy interfaces, and practical AI integrations.
     </p>
   </>
 )
@@ -132,7 +128,7 @@ const baseSections: CvSections = {
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
             Developing software at Dalux with agentic AI, DevOps, TypeScript,
-            AngularJS, and .NET as part of a Scrum team.
+            AngularJS, and .NET in a Scrum team.
           </li>
         </ul>
       ),
@@ -158,14 +154,11 @@ const baseSections: CvSections = {
       description: (
         <ul className="theme-cv-marker ml-4 flex list-disc flex-col gap-2">
           <li>
-            Lead maintainer of an open-source TypeScript/React/Node.js
-            visualization environment for understanding repository evolution,
-            ownership, and codebase architecture with DuckDB and D3.
+            Lead maintainer of an open-source TypeScript/React visualization
+            environment for repository evolution and ownership analysis.
           </li>
           <li>
-            Migrated the project from Remix v2 and styled-components to React
-            Router v7, Tailwind CSS v4, Bun, and Vite to improve maintainability
-            and developer experience.
+            Migrated the stack to React Router, Tailwind CSS, Bun, and Vite.
           </li>
         </ul>
       ),
@@ -186,14 +179,11 @@ const baseSections: CvSections = {
       description: (
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Delivered full-stack consultancy solutions between studies, adapting
-            quickly to client codebases, domain workflows, and cross-functional
-            collaboration.
+            Delivered full-stack consultancy work across varied codebases and
+            domains.
           </li>
           <li>
-            Extended a Life Cycle Assessment platform with COWI and Arkitema,
-            building CO2 dashboards for construction emissions across data
-            pipelines, backend integrations, and UI.
+            Built CO2 dashboards and data integrations for COWI and Arkitema.
           </li>
         </ul>
       ),
@@ -218,26 +208,20 @@ const baseSections: CvSections = {
       description: (
         <ul className="ml-4 flex list-disc flex-col gap-2">
           <li>
-            Helped transition Dansk Drone Kompagni from a drone services company
-            into an in-house B2B software provider by shaping and delivering
-            inspection products from concept to production.
+            Helped build Dansk Drone Kompagni’s B2B inspection products from
+            concept to production.
           </li>
           <li>
-            Built Ortomatic, a geospatial web application for comparing vector
-            and tiled aerial photogrammetry directly in the browser, including
-            monthly surveying for Odense Letbane against high-precision aerial
-            drone footage.
+            Built Ortomatic, a browser-based geospatial comparison tool for
+            aerial survey data.
           </li>
-          <li>
-            Worked systematically with Git, pull requests, CI/CD, and coding
-            standards while developing the B2B products.
-          </li>
+          <li>Established strong Git, CI/CD, and code review practices.</li>
         </ul>
       ),
     },
   ],
 
-  "Technical Skills": [
+  Skills: [
     {
       institution: "",
       tech: [],
@@ -252,8 +236,8 @@ const baseSections: CvSections = {
             <span className="theme-cv-accent font-semibold">React</span> · React
             Router ·{" "}
             <span className="theme-cv-accent font-semibold">Next.js</span> ·{" "}
-            <span className="theme-cv-accent font-semibold">Tailwind CSS</span> ·
-            Accessibility
+            <span className="theme-cv-accent font-semibold">Tailwind CSS</span>{" "}
+            · Accessibility
           </span>
           <strong>Working Practices</strong>
           <span>
@@ -269,14 +253,16 @@ const baseSections: CvSections = {
           <strong>Backend and Data</strong>
           <span>
             Node.js · C#/.NET · MSSQL · GraphQL ·{" "}
-            <span style={{ fontKerning: "none" }}>APIs</span> · Integrations ·
-            Data flows
+            <span style={{ fontKerning: "none" }}>APIs</span> · Integrations
           </span>
           <strong>AI-Assisted Development</strong>
           <span>
-            <span className="theme-cv-accent font-semibold">GitHub Copilot</span>{" "}
+            <span className="theme-cv-accent font-semibold">
+              GitHub Copilot
+            </span>{" "}
             · Claude ·{" "}
-            <span className="theme-cv-accent font-semibold">Codex</span>
+            <span className="theme-cv-accent font-semibold">Codex</span> ·
+            Skills
           </span>
           <strong>AI Integrations</strong>
           <span>
@@ -291,6 +277,8 @@ const baseSections: CvSections = {
             <span className="theme-cv-accent font-semibold">Blob Storage</span>{" "}
             and Redis) · DigitalOcean (.NET and MSSQL) · Supabase (Postgres)
           </span>
+          <strong>Languages</strong>
+          <span>Danish · English</span>
           <p className="theme-cv-muted col-span-2 mt-1 text-[11px] italic">
             Highlighted technologies were used to build and generate this
             resume.
@@ -372,7 +360,7 @@ export default function Resume() {
   const pdfHref = "/cv/pdf"
   const sectionColumns = [
     ["Profile", "Experience"],
-    ["Technical Skills", "Education", "Publications"],
+    ["Skills", "Education", "Publications"],
   ]
 
   return (
@@ -382,7 +370,7 @@ export default function Resume() {
           target="_blank"
           prefetch="auto"
           href={pdfHref as Route}
-          className="theme-panel-alt mx-auto flex w-fit items-center gap-2 rounded border theme-accent-border px-3 py-2 text-sm font-bold theme-accent-heading transition-colors"
+          className="theme-panel-alt theme-accent-border theme-accent-heading mx-auto flex w-fit items-center gap-2 rounded border px-3 py-2 text-sm font-bold transition-colors"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
@@ -399,7 +387,7 @@ export default function Resume() {
             loading="eager"
             priority
             className={cn(
-              "z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 theme-cv-header-border object-cover shadow-xl shadow-black/25",
+              "theme-cv-header-border z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 object-cover shadow-xl shadow-black/25",
             )}
           />
           <div className="flex flex-col justify-around gap-4 text-center">
@@ -432,9 +420,9 @@ export default function Resume() {
           </div>
         </header>
 
-        <main className="theme-cv-main relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t p-4 [grid-area:main] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
+        <main className="theme-cv-main relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t p-4 [grid-area:main] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-4 print:grid-cols-2 print:gap-5 print:rounded-xl print:p-4 print:text-[14px] print:leading-snug">
           {sectionColumns.map((column, columnIndex) => (
-            <div key={columnIndex} className="flex flex-col gap-10 print:gap-6">
+            <div key={columnIndex} className="flex flex-col gap-10 print:gap-5">
               {column.map((sectionHeading) => {
                 const entries = sections[sectionHeading]
 
@@ -444,11 +432,16 @@ export default function Resume() {
                     className="relative flex flex-col gap-2"
                   >
                     <SectionHeading title={sectionHeading} />
-                    <section className="flex flex-col gap-6 print:gap-3">
+                    <section className="flex flex-col gap-6 print:gap-4">
                       {entries.map((item, index) => (
                         <div key={index}>
                           {item.title ? (
                             <EntryHeading
+                              className={
+                                sectionHeading === "Experience"
+                                  ? "mb-3 print:mb-1"
+                                  : ""
+                              }
                               title={item.title}
                               institution={item.institution}
                               url={item.url}
@@ -514,7 +507,7 @@ function EntryHeading({
   return (
     <div
       className={cn(
-        "mt-4 mb-2 justify-between gap-4 print:mt-2 print:mb-1",
+        "mt-4 mb-2 justify-between gap-4 print:mt-1 print:mb-0",
         className,
       )}
     >
@@ -561,7 +554,7 @@ function EntryHeading({
 
 function EntryTech({ tech }: { tech: Array<Tech> }) {
   return (
-    <div className="mt-2 mb-3 flex flex-wrap gap-1.5 print:mt-1 print:mb-2">
+    <div className="mt-2 mb-3 flex flex-wrap gap-1.5 print:mt-0 print:mb-1">
       {tech.map((item) => (
         <span
           key={item.title}
