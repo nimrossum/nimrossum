@@ -154,63 +154,54 @@ export default function Home() {
 
   const categoryStyles = {
     All: {
-      activeText: "text-[#f0d894]",
-      activeBg: "bg-[#1f332b]",
-      activeBorder: "border-[#d6b36a]/70",
-      activeShadow: "shadow-[0_0_14px_rgba(214,179,106,0.16)]",
-      badgeActiveText: "text-[#f7f5ee]",
-      badgeActiveBg: "bg-[#d6b36a]/45",
+      activeText: "theme-accent",
+      activeBg: "theme-accent-bg",
+      activeBorder: "theme-accent-border",
+      activeShadow: "theme-accent-shadow",
+      badgeActiveText: "text-white",
+      badgeActiveBg: "theme-accent-bg",
     },
     Professional: {
-      activeText: "text-[#dce8cf]",
-      activeBg: "bg-[#1f332b]",
-      activeBorder: "border-[#7f9b78]/70",
-      activeShadow: "shadow-[0_0_12px_rgba(127,155,120,0.18)]",
-      badgeActiveText: "text-[#eef3df]",
-      badgeActiveBg: "bg-[#55745d]/60",
-      timelineNode:
-        "border-[#7f9b78] group-hover:scale-[1.25] group-hover:bg-[#7f9b78] group-hover:shadow-[0_0_12px_rgba(127,155,120,0.35)]",
-      timelineLine:
-        "bg-[#7f9b78]/30 group-hover:bg-[#7f9b78]/80 group-hover:shadow-[0_0_8px_rgba(127,155,120,0.22)]",
-      timelineDot:
-        "border-[#7f9b78]/50 group-hover:scale-[1.25] group-hover:border-[#7f9b78] group-hover:bg-[#7f9b78] group-hover:shadow-[0_0_10px_rgba(127,155,120,0.3)]",
-      cardHoverBorder: "hover:border-[#7f9b78]/50",
-      titleHover: "group-hover:text-[#2f5b3f]",
-      yearText: "text-[#8a7b55] border-[#d6b36a]/25",
+      activeText: "theme-accent",
+      activeBg: "theme-accent-bg",
+      activeBorder: "theme-accent-border",
+      activeShadow: "theme-accent-shadow",
+      badgeActiveText: "text-white",
+      badgeActiveBg: "theme-accent-bg",
+      timelineNode: "theme-timeline-node",
+      timelineLine: "theme-timeline-line",
+      timelineDot: "theme-timeline-dot",
+      cardHoverBorder: "theme-accent-border",
+      titleHover: "theme-light-title-hover",
+      yearText: "theme-year",
     },
     "Open Source": {
-      activeText: "text-[#f0d894]",
-      activeBg: "bg-[#1f332b]",
-      activeBorder: "border-[#d6b36a]/70",
-      activeShadow: "shadow-[0_0_14px_rgba(214,179,106,0.2)]",
-      badgeActiveText: "text-[#f7f5ee]",
-      badgeActiveBg: "bg-[#d6b36a]/45",
-      timelineNode:
-        "border-[#d6b36a] group-hover:scale-[1.25] group-hover:bg-[#d6b36a] group-hover:shadow-[0_0_12px_rgba(214,179,106,0.35)]",
-      timelineLine:
-        "bg-[#d6b36a]/30 group-hover:bg-[#d6b36a]/80 group-hover:shadow-[0_0_8px_rgba(214,179,106,0.24)]",
-      timelineDot:
-        "border-[#d6b36a]/50 group-hover:scale-[1.25] group-hover:border-[#d6b36a] group-hover:bg-[#d6b36a] group-hover:shadow-[0_0_10px_rgba(214,179,106,0.32)]",
-      cardHoverBorder: "hover:border-[#d6b36a]/50",
-      titleHover: "group-hover:text-[#7a5c16]",
-      yearText: "text-[#8a7b55] border-[#d6b36a]/25",
+      activeText: "theme-accent",
+      activeBg: "theme-accent-bg",
+      activeBorder: "theme-accent-border",
+      activeShadow: "theme-accent-shadow",
+      badgeActiveText: "text-white",
+      badgeActiveBg: "theme-accent-bg",
+      timelineNode: "theme-timeline-node",
+      timelineLine: "theme-timeline-line",
+      timelineDot: "theme-timeline-dot",
+      cardHoverBorder: "theme-accent-border",
+      titleHover: "theme-light-title-hover",
+      yearText: "theme-year",
     },
     "Publications & Talks": {
-      activeText: "text-[#e8dfc2]",
-      activeBg: "bg-[#1f332b]",
-      activeBorder: "border-[#c8c2ad]/65",
-      activeShadow: "shadow-[0_0_12px_rgba(200,194,173,0.16)]",
-      badgeActiveText: "text-[#f7f5ee]",
-      badgeActiveBg: "bg-[#8a7b55]/60",
-      timelineNode:
-        "border-[#c8c2ad] group-hover:scale-[1.25] group-hover:bg-[#c8c2ad] group-hover:shadow-[0_0_12px_rgba(200,194,173,0.3)]",
-      timelineLine:
-        "bg-[#c8c2ad]/30 group-hover:bg-[#c8c2ad]/80 group-hover:shadow-[0_0_8px_rgba(200,194,173,0.2)]",
-      timelineDot:
-        "border-[#c8c2ad]/50 group-hover:scale-[1.25] group-hover:border-[#c8c2ad] group-hover:bg-[#c8c2ad] group-hover:shadow-[0_0_10px_rgba(200,194,173,0.28)]",
-      cardHoverBorder: "hover:border-[#c8c2ad]/50",
-      titleHover: "group-hover:text-[#6f603f]",
-      yearText: "text-[#8a7b55] border-[#d6b36a]/25",
+      activeText: "theme-accent",
+      activeBg: "theme-accent-bg",
+      activeBorder: "theme-accent-border",
+      activeShadow: "theme-accent-shadow",
+      badgeActiveText: "text-white",
+      badgeActiveBg: "theme-accent-bg",
+      timelineNode: "theme-timeline-node",
+      timelineLine: "theme-timeline-line",
+      timelineDot: "theme-timeline-dot",
+      cardHoverBorder: "theme-accent-border",
+      titleHover: "theme-light-title-hover",
+      yearText: "theme-year",
     },
   } as const
 
@@ -280,23 +271,23 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12">
       <section className="mx-auto flex min-h-[calc(100dvh-10rem)] flex-col justify-evenly">
-        <div className="bg-aside mx-auto w-full max-w-6xl rounded-md border border-[#3f4c37] shadow-2xl shadow-black/25">
-          <div className="bg-aside relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border border-[#d6b36a]/14 p-6 text-[#eef3df] sm:flex-row sm:items-end lg:min-h-107.5 lg:p-12">
+        <div className="theme-panel mx-auto w-full max-w-6xl rounded-md border theme-panel-border shadow-2xl shadow-black/25">
+          <div className="theme-panel relative flex flex-col-reverse items-center gap-10 overflow-hidden rounded-md border theme-accent-border p-6 text-[var(--foreground)] sm:flex-row sm:items-end lg:min-h-107.5 lg:p-12">
             <div className="z-10 max-w-3xl lg:ml-80">
-              <h1 className="font-heading mb-2 text-4xl leading-none font-bold tracking-tight text-[#f2dfad] sm:text-5xl lg:text-6xl">
+              <h1 className="font-heading theme-accent-heading mb-2 text-4xl leading-none font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Jonas Nim Røssum
               </h1>
-              <p className="text-sm font-bold tracking-widest text-[#d7d8cf]/70 uppercase">
+              <p className="theme-muted text-sm font-bold tracking-widest uppercase">
                 Full Stack developer &middot; based in Copenhagen
               </p>
-              <p className="mt-8 max-w-2xl text-2xl leading-tight font-semibold text-[#eef3df] sm:text-3xl lg:leading-[1.1]">
+              <p className="mt-8 max-w-2xl text-2xl leading-tight font-semibold text-[var(--foreground)] sm:text-3xl lg:leading-[1.1]">
                 <span className="whitespace-nowrap">
                   Web Apps
-                  <span className="mx-3 text-[#f0d894]/55">&middot;</span>
+                  <span className="theme-accent mx-3">&middot;</span>
                 </span>
                 <span className="whitespace-nowrap">
                   Data Viz
-                  <span className="mx-3 text-[#f0d894]/55">&middot;</span>
+                  <span className="theme-accent mx-3">&middot;</span>
                 </span>
                 <span className="whitespace-nowrap">ML</span>
               </p>
@@ -305,7 +296,7 @@ export default function Home() {
                   target="_blank"
                   prefetch="auto"
                   href={"/cv/pdf" as Route}
-                  className="flex items-center gap-2 rounded-sm border border-[#d6b36a]/40 bg-[#202a22] px-5 py-3 text-sm font-bold text-[#f0d894] transition hover:border-[#f0d894] hover:bg-[#283322] hover:text-white"
+                  className="theme-panel-alt flex items-center gap-2 rounded-sm border theme-accent-border px-5 py-3 text-sm font-bold theme-accent-heading transition hover:text-white"
                 >
                   <DocumentTextIcon className="size-5" />
                   CV (PDF)
@@ -314,7 +305,7 @@ export default function Home() {
                   <a
                     target="_blank"
                     href="mailto:hello@nimrossum.com"
-                    className="group relative flex items-center gap-2 rounded-sm border border-[#d6b36a]/35 bg-[#eef3df] px-5 py-3 text-sm font-bold text-[#1f332b] transition-all duration-200 ease-out before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:translate-x-0 before:translate-y-0 before:transform before:rounded-sm before:border before:border-[#d6b36a]/45 before:transition-all before:duration-200 before:ease-out before:will-change-transform hover:border-[#f0d894] hover:bg-white hover:text-[#1f332b] hover:shadow-[0_10px_24px_rgba(0,0,0,0.22)] hover:before:translate-x-2 hover:before:translate-y-2 hover:before:border-[#d6b36a]"
+                    className="theme-offset-button group relative flex items-center gap-2 rounded-sm border theme-accent-border bg-[var(--accent-muted)] px-5 py-3 text-sm font-bold text-[var(--panel)] transition-all duration-200 ease-out before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:translate-x-0 before:translate-y-0 before:transform before:rounded-sm before:border before:transition-all before:duration-200 before:ease-out before:will-change-transform hover:bg-white hover:shadow-[0_10px_24px_rgba(0,0,0,0.22)] hover:before:translate-x-2 hover:before:translate-y-2"
                   >
                     <EnvelopeIcon className="size-5" />
                     Get in touch
@@ -335,7 +326,7 @@ export default function Home() {
         </div>
         <a
           href="#projects"
-          className="group text-md mx-auto mt-16 flex flex-col items-center gap-2 font-medium text-[#d7d8cf]/70 transition hover:text-[#f0d894]"
+          className="theme-accent-link group text-md theme-muted mx-auto mt-16 flex flex-col items-center gap-2 font-medium transition"
         >
           Explore work{" "}
           <svg
@@ -351,9 +342,9 @@ export default function Home() {
         className="grid gap-6 lg:grid-cols-[1.35fr_0.85fr] lg:grid-rows-[auto_1fr] lg:items-start"
         id="projects"
       >
-        <div className="order-2 rounded-md border border-[#3f4c37] bg-[#202a22] text-[#eef3df] shadow-md shadow-black/20 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+        <div className="theme-panel order-2 rounded-md border theme-panel-border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <div className="px-6 py-6 lg:px-7">
-            <h2 className="font-heading mb-3 text-xl leading-loose font-bold tracking-[0.12em] text-[#f0d894] uppercase">
+            <h2 className="font-heading theme-accent mb-3 text-xl leading-loose font-bold tracking-[0.12em] uppercase">
               Selected Work & Projects
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -371,7 +362,7 @@ export default function Home() {
                       className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
                         filter === cat
                           ? `border ${style.activeBorder} ${style.activeBg} ${style.activeText} ${style.activeShadow}`
-                          : "border border-[#d6b36a]/18 bg-white/5 text-[#eef3df]/70 hover:border-[#d6b36a]/45 hover:text-[#f0d894]"
+                          : "theme-accent-link border theme-accent-border bg-white/5 theme-muted"
                       }`}
                     >
                       {cat}
@@ -379,7 +370,7 @@ export default function Home() {
                         className={`rounded-full px-1.5 py-0.5 text-[10px] leading-none transition-colors ${
                           filter === cat
                             ? `${style.badgeActiveBg} ${style.badgeActiveText}`
-                            : "bg-[#eef3df]/10 text-[#eef3df]/68"
+                            : "bg-white/10 theme-muted"
                         }`}
                       >
                         {count}
@@ -391,7 +382,7 @@ export default function Home() {
             </div>
             <div className="relative mt-7">
               {/* Continuous vertical line for the timeline */}
-              <div className="absolute top-8 bottom-10 left-2.75 w-0.5 bg-[#d6b36a]/22" />
+              <div className="theme-timeline absolute top-8 bottom-10 left-2.75 w-0.5" />
 
               <div className="flex flex-col gap-4">
                 {filteredExperiences.map((item) => {
@@ -406,7 +397,7 @@ export default function Home() {
                       {/* Commit node */}
                       <div className="relative z-10 flex w-6 shrink-0 flex-col items-center">
                         <div
-                          className={`mt-5 h-3 w-3 shrink-0 rounded-full border-2 bg-[#f7f5ee] transition-all duration-300 ${style.timelineNode}`}
+                          className={`mt-5 h-3 w-3 shrink-0 rounded-full border-2 bg-[var(--surface)] transition-all duration-300 ${style.timelineNode}`}
                         />
                         {isMultiYear && (
                           <>
@@ -414,7 +405,7 @@ export default function Home() {
                               className={`my-1.5 w-0.5 flex-1 transition-colors duration-300 ${style.timelineLine}`}
                             />
                             <div
-                              className={`mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] bg-[#f7f5ee] transition-all duration-300 ${style.timelineDot}`}
+                              className={`mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] bg-[var(--surface)] transition-all duration-300 ${style.timelineDot}`}
                             />
                           </>
                         )}
@@ -423,28 +414,28 @@ export default function Home() {
                       {/* Timeline Event Card */}
                       <a
                         href={item.href ?? undefined}
-                        className={`block flex-1 rounded-md border border-[#d8d5c7] bg-[#eeeadf] px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:bg-[#f7f5ee] hover:shadow-lg hover:shadow-black/10 ${style.cardHoverBorder}`}
+                        className={`theme-light theme-light-border theme-light-hover block flex-1 rounded-md border px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/10 ${style.cardHoverBorder}`}
                         target={item.href ? "_blank" : undefined}
                         rel={item.href ? "noopener noreferrer" : undefined}
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>
                             <h3
-                              className={`text-base font-semibold text-[#20231d] transition-colors ${style.titleHover}`}
+                              className={`theme-light-title text-base font-semibold transition-colors ${style.titleHover}`}
                             >
                               {item.title}
                             </h3>
-                            <p className="mt-0.5 text-xs font-semibold tracking-wide text-[#6b675b] uppercase">
+                            <p className="theme-light-meta mt-0.5 text-xs font-semibold tracking-wide uppercase">
                               {item.role}
                             </p>
                           </div>
                           <span
-                            className={`shrink-0 rounded-sm border bg-[#f7f5ee] px-2 py-1 text-[11px] font-semibold uppercase ${style.yearText}`}
+                            className={`theme-light border bg-[var(--surface)] px-2 py-1 text-[11px] font-semibold uppercase ${style.yearText}`}
                           >
                             {item.year}
                           </span>
                         </div>
-                        <div className="mt-3 text-sm leading-relaxed text-[#3f423b]">
+                        <div className="theme-light-copy mt-3 text-sm leading-relaxed">
                           {item.body}
                         </div>
                       </a>
@@ -456,33 +447,33 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="order-1 rounded-md border border-[#3f4c37] bg-[#202a22] shadow-md shadow-black/20 lg:col-start-2 lg:row-start-1">
+        <aside className="theme-panel order-1 rounded-md border theme-panel-border shadow-md shadow-black/20 lg:col-start-2 lg:row-start-1">
           <div className="px-6 py-6 lg:px-7">
-            <h2 className="font-heading text-lg font-bold tracking-[0.12em] text-[#f0d894] uppercase">
+            <h2 className="font-heading theme-accent text-lg font-bold tracking-[0.12em] uppercase">
               About me
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[#eef3df]/82">
+            <p className="theme-muted mt-3 text-sm leading-relaxed">
               Product-minded developer focused on clear UX and data-heavy web
               interfaces. I like tight feedback loops and shipping useful tools.
             </p>
 
-            <div className="mt-5 grid grid-cols-[1fr_2fr] items-start gap-y-3 text-sm text-[#eef3df]">
-              <div className="text-[#f0d894]/78">Education</div>
+            <div className="mt-5 grid grid-cols-[1fr_2fr] items-start gap-y-3 text-sm text-[var(--foreground)]">
+              <div className="theme-accent">Education</div>
               <div> MSc. in Computer Science</div>
 
-              <div className="text-[#f0d894]/78">Expertise</div>
+              <div className="theme-accent">Expertise</div>
               <div>TypeScript/React</div>
 
-              <div className="text-[#f0d894]/78">Location</div>
+              <div className="theme-accent">Location</div>
               <div> Copenhagen</div>
 
-              <div className="text-[#f0d894]/78">Experience</div>
+              <div className="theme-accent">Experience</div>
               <div> 4 years professional experience; coding since 2010</div>
 
-              <div className="text-[#f0d894]/78">Email</div>
+              <div className="theme-accent">Email</div>
               <div className="flex items-center gap-2">
                 <a
-                  className="text-[#f0d894] hover:text-white"
+                  className="theme-accent hover:text-white"
                   href="mailto:hello@nimrossum.com"
                 >
                   hello@nimrossum.com
@@ -494,10 +485,10 @@ export default function Home() {
                     setTimeout(() => setCopied(false), 2000)
                   }}
                   title="Copy email"
-                  className="text-[#eef3df]/65 transition-colors hover:text-white"
+                  className="theme-muted transition-colors hover:text-white"
                 >
                   {copied ? (
-                    <CheckIcon className="size-4 text-[#f0d894]" />
+                    <CheckIcon className="theme-accent size-4" />
                   ) : (
                     <DocumentDuplicateIcon className="size-5" />
                   )}
@@ -507,15 +498,15 @@ export default function Home() {
           </div>
         </aside>
 
-        <aside className="order-3 rounded-md border border-[#3f4c37] bg-[#202a22] text-[#eef3df] shadow-md shadow-black/20 lg:col-start-2 lg:row-start-2 lg:self-start">
+        <aside className="theme-panel order-3 rounded-md border theme-panel-border text-[var(--foreground)] shadow-md shadow-black/20 lg:col-start-2 lg:row-start-2 lg:self-start">
           <div className="px-6 py-6 lg:px-7">
             <div className="flex items-center justify-between gap-2">
-              <h2 className="font-heading text-lg font-bold tracking-[0.12em] text-[#f0d894] uppercase">
+              <h2 className="font-heading theme-accent text-lg font-bold tracking-[0.12em] uppercase">
                 Toy Projects
               </h2>
             </div>
             <div className="relative mt-5">
-              <div className="absolute top-8 bottom-10 left-2.75 w-0.5 bg-[#d6b36a]/22" />
+              <div className="theme-timeline absolute top-8 bottom-10 left-2.75 w-0.5" />
               <div className="flex flex-col gap-4">
                 {toyProjects.map((item) => {
                   const isMultiYear =
@@ -526,34 +517,34 @@ export default function Home() {
                       className="group relative flex gap-4 lg:gap-5"
                     >
                       <div className="relative z-10 flex w-6 shrink-0 flex-col items-center">
-                        <div className="mt-5 h-3 w-3 shrink-0 rounded-full border-2 border-[#d6b36a] bg-[#f7f5ee] transition-all duration-300 group-hover:scale-[1.25] group-hover:bg-[#d6b36a] group-hover:shadow-[0_0_12px_rgba(214,179,106,0.35)]" />
+                        <div className="theme-timeline-node mt-5 h-3 w-3 shrink-0 rounded-full border-2 transition-all duration-300 group-hover:scale-[1.25]" />
                         {isMultiYear && (
                           <>
-                            <div className="my-1.5 w-0.5 flex-1 bg-[#d6b36a]/30 transition-colors duration-300 group-hover:bg-[#d6b36a]/80 group-hover:shadow-[0_0_8px_rgba(214,179,106,0.24)]" />
-                            <div className="mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[#d6b36a]/50 bg-[#f7f5ee] transition-all duration-300 group-hover:scale-[1.25] group-hover:border-[#d6b36a] group-hover:bg-[#d6b36a] group-hover:shadow-[0_0_10px_rgba(214,179,106,0.32)]" />
+                            <div className="theme-timeline-line my-1.5 w-0.5 flex-1 transition-colors duration-300" />
+                            <div className="theme-timeline-dot mb-6 h-2 w-2 shrink-0 rounded-full border-[1.5px] bg-[var(--surface)] transition-all duration-300 group-hover:scale-[1.25]" />
                           </>
                         )}
                       </div>
                       <a
                         href={item.href ?? undefined}
-                        className="block flex-1 rounded-md border border-[#d8d5c7] bg-[#eeeadf] px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:border-[#d6b36a]/50 hover:bg-[#f7f5ee] hover:shadow-lg hover:shadow-black/10"
+                        className="theme-light theme-light-border theme-light-hover block flex-1 rounded-md border px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/10"
                         target={item.href ? "_blank" : undefined}
                         rel={item.href ? "noopener noreferrer" : undefined}
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>
-                            <h3 className="text-base font-semibold text-[#20231d] transition-colors group-hover:text-[#8a7b55]">
+                            <h3 className="theme-light-title theme-light-title-hover text-base font-semibold transition-colors">
                               {item.title}
                             </h3>
-                            <p className="mt-0.5 text-xs font-semibold tracking-wide text-[#6b675b] uppercase">
+                            <p className="theme-light-meta mt-0.5 text-xs font-semibold tracking-wide uppercase">
                               {item.role}
                             </p>
                           </div>
-                          <span className="shrink-0 rounded-sm border border-[#d6b36a]/25 bg-[#f7f5ee] px-2 py-1 text-[11px] font-semibold text-[#8a7b55] uppercase">
+                          <span className="theme-year shrink-0 rounded-sm border bg-[var(--surface)] px-2 py-1 text-[11px] font-semibold uppercase">
                             {item.year}
                           </span>
                         </div>
-                        <div className="mt-3 text-sm leading-relaxed text-[#3f423b]">
+                        <div className="theme-light-copy mt-3 text-sm leading-relaxed">
                           {item.body}
                         </div>
                       </a>

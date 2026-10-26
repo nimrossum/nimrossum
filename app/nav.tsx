@@ -6,12 +6,12 @@ import { usePathname } from "next/navigation"
 export function Nav() {
   const pathname = usePathname()
   const linkClass =
-    "block border-b-2 px-4 py-2 transition-colors hover:border-[#d6b36a]/50 hover:text-[#f0d894]"
+    "theme-nav-link block border-b-2 px-4 py-2 transition-colors"
 
   return (
     <nav aria-label="Primary" className="flex justify-center">
-      <ul className="flex flex-wrap items-center justify-center text-sm font-semibold tracking-wide text-[#d7d8cf] uppercase">
-        <h1 className="font-heading mb-3 w-full text-center text-xl tracking-normal text-[#f0d894] sm:mr-8 sm:mb-0 sm:w-auto sm:text-base">
+      <ul className="theme-muted flex flex-wrap items-center justify-center text-sm font-semibold tracking-wide uppercase">
+        <h1 className="font-heading theme-accent mb-3 w-full text-center text-xl tracking-normal sm:mr-8 sm:mb-0 sm:w-auto sm:text-base">
           Jonas Nim Røssum
         </h1>
         <li>
@@ -19,7 +19,7 @@ export function Nav() {
             prefetch="auto"
             className={`${linkClass} ${
               pathname === "/"
-                ? "border-[#d6b36a] text-[#f0d894]"
+                ? "theme-accent border-[var(--accent)]"
                 : "border-transparent"
             }`}
             href="/"
@@ -33,7 +33,7 @@ export function Nav() {
             prefetch="auto"
             className={`${linkClass} ${
               pathname === "/cv" || pathname === "/cv/pdf" // Depending on nested paths
-                ? "border-[#d6b36a] text-[#f0d894]"
+                ? "theme-accent border-[var(--accent)]"
                 : "border-transparent"
             }`}
             href="/cv"

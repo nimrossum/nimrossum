@@ -49,8 +49,8 @@ export default function RootLayout({
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📃</text></svg>"
         />
       </head>
-      <body className={cn("relative bg-[#151712] font-sans text-stone-100")}>
-        <div className="relative min-h-dvh bg-[#151712] print:min-h-0">
+      <body className={cn("theme-page relative font-sans text-stone-100")}>
+        <div className="theme-page relative min-h-dvh print:min-h-0">
           <div className="relative mx-auto flex min-h-dvh max-w-6xl flex-col px-5 pt-6 pb-10 md:px-7 lg:px-10 print:block print:min-h-0 print:p-0">
             <header className="py-2 print:hidden">
               <Nav />
@@ -60,7 +60,7 @@ export default function RootLayout({
               {children}
             </main>
           </div>
-          <footer className="mt-6 border-t border-white/10 bg-[#10120e] py-2 pt-6 pb-10 print:hidden">
+          <footer className="theme-panel-alt mt-6 border-t border-white/10 py-2 pt-6 pb-10 print:hidden">
             <Nav />
           </footer>
         </div>

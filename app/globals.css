@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #151712;
-  --foreground: #20231d;
+  --background: #0b1426;
+  --foreground: #eff4ff;
+  --panel: #14233d;
+  --panel-alt: #1b2f52;
+  --panel-soft: #263f69;
+  --accent: #6ea8ff;
+  --accent-strong: #3d82ed;
+  --accent-muted: #cfe0ff;
+  --surface: #f7f9fc;
+  --surface-hover: #ffffff;
+  --surface-border: #d6deeb;
+  --ink: #1d2637;
+  --ink-muted: #5c687b;
+  --line: #bbc8dc;
   --fallback-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --fallback-mono:
     "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
@@ -16,7 +28,7 @@
   --font-heading: var(--font-outfit), var(--fallback-font);
   --font-mono: var(--font-geist-mono), var(--fallback-mono);
 
-  --color-primary: oklch(1 0.0232 47.98);
+  --color-primary: oklch(0.75 0.18 260);
   --color-primary-100: oklch(from var(--color-primary) calc(l * 0.1) c h);
   --color-primary-200: oklch(from var(--color-primary) calc(l * 0.2) c h);
   --color-primary-300: oklch(from var(--color-primary) calc(l * 0.3) c h);
@@ -28,7 +40,7 @@
   --color-primary-900: oklch(from var(--color-primary) calc(l * 0.9) c h);
 
   --color-main: oklch(from var(--color-gray-50) l c h / 100%);
-  --color-aside: #202a22;
+  --color-aside: var(--panel);
 
   --animation-hover: hover 5s ease-in-out infinite;
 }
@@ -37,6 +49,173 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   background: var(--background);
+}
+
+.theme-page {
+  background: var(--background);
+}
+
+.theme-panel {
+  background: var(--panel);
+}
+
+.theme-panel-alt {
+  background: var(--panel-alt);
+}
+
+.theme-panel-border {
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.theme-accent {
+  color: var(--accent);
+}
+
+.theme-accent-heading {
+  color: var(--accent-muted);
+}
+
+.theme-accent-border {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.theme-accent-border:hover {
+  border-color: var(--accent);
+}
+
+.theme-nav-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-accent-link:hover {
+  color: var(--accent);
+}
+
+.theme-accent-bg {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.theme-accent-shadow {
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.theme-muted {
+  color: color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+
+.theme-light {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.theme-light-hover:hover {
+  background: var(--surface-hover);
+}
+
+.theme-light-border {
+  border-color: var(--surface-border);
+}
+
+.theme-light-title {
+  color: var(--ink);
+}
+
+.group:hover .theme-light-title-hover {
+  color: var(--accent-strong);
+}
+
+.theme-light-copy {
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
+}
+
+.theme-light-meta {
+  color: var(--ink-muted);
+}
+
+.theme-year {
+  color: color-mix(in srgb, var(--accent-strong) 72%, var(--ink-muted));
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.theme-timeline {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.theme-timeline-node {
+  border-color: var(--accent);
+}
+
+.group:hover .theme-timeline-node {
+  background: var(--accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 36%, transparent);
+}
+
+.theme-timeline-line {
+  background: color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+.group:hover .theme-timeline-line {
+  background: color-mix(in srgb, var(--accent) 82%, transparent);
+}
+
+.theme-timeline-dot {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.group:hover .theme-timeline-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.theme-cv-main {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--surface-border);
+}
+
+.theme-cv-heading {
+  color: var(--accent-strong);
+}
+
+.theme-cv-heading-line {
+  background: var(--line);
+}
+
+.theme-cv-body {
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
+}
+
+.theme-cv-muted {
+  color: var(--ink-muted);
+}
+
+.theme-cv-accent {
+  color: color-mix(in srgb, var(--accent-strong) 82%, var(--ink));
+}
+
+.theme-cv-marker::marker {
+  color: var(--accent-strong);
+}
+
+.theme-cv-link:hover {
+  color: var(--accent-strong);
+}
+
+.theme-cv-header {
+  color: var(--accent-muted);
+}
+
+.theme-cv-header-border {
+  border-color: var(--surface);
+}
+
+.theme-offset-button::before {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.theme-offset-button:hover::before {
+  border-color: var(--accent);
 }
 
 @keyframes hover {

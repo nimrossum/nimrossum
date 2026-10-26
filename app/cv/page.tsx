@@ -129,7 +129,7 @@ const baseSections: CvSections = {
       startYear: "2022",
       endYear: "Present",
       description: (
-        <ul className="ml-4 flex list-disc flex-col gap-2 marker:text-[#55745d]">
+        <ul className="theme-cv-marker ml-4 flex list-disc flex-col gap-2">
           <li>
             Lead maintainer of an open-source TypeScript/React/Node.js
             visualization environment for understanding repository evolution,
@@ -218,26 +218,26 @@ const baseSections: CvSections = {
         <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5">
           <strong>Frontend</strong>
           <span>
-            <span className="font-semibold text-[#456c52]">HTML</span> ·{" "}
-            <span className="font-semibold text-[#456c52]">CSS</span> ·
+            <span className="theme-cv-accent font-semibold">HTML</span> ·{" "}
+            <span className="theme-cv-accent font-semibold">CSS</span> ·
             JavaScript ·{" "}
-            <span className="font-semibold text-[#456c52]">TypeScript</span> ·{" "}
-            <span className="font-semibold text-[#456c52]">React</span> · React
+            <span className="theme-cv-accent font-semibold">TypeScript</span> ·{" "}
+            <span className="theme-cv-accent font-semibold">React</span> · React
             Router ·{" "}
-            <span className="font-semibold text-[#456c52]">Next.js</span> ·{" "}
-            <span className="font-semibold text-[#456c52]">Tailwind CSS</span> ·
+            <span className="theme-cv-accent font-semibold">Next.js</span> ·{" "}
+            <span className="theme-cv-accent font-semibold">Tailwind CSS</span> ·
             Accessibility
           </span>
           <strong>Working Practices</strong>
           <span>
-            <span className="font-semibold text-[#456c52]">Git</span> ·{" "}
-            <span className="font-semibold text-[#456c52]">GitHub</span> · Pull
+            <span className="theme-cv-accent font-semibold">Git</span> ·{" "}
+            <span className="theme-cv-accent font-semibold">GitHub</span> · Pull
             Requests · Code Review
           </span>
           <strong>Testing and Verification</strong>
           <span>
             CI/CD · GitHub Actions ·{" "}
-            <span className="font-semibold text-[#456c52]">Playwright</span>
+            <span className="theme-cv-accent font-semibold">Playwright</span>
           </span>
           <strong>Backend and Data</strong>
           <span>
@@ -247,24 +247,24 @@ const baseSections: CvSections = {
           </span>
           <strong>AI-Assisted Development</strong>
           <span>
-            <span className="font-semibold text-[#456c52]">GitHub Copilot</span>{" "}
+            <span className="theme-cv-accent font-semibold">GitHub Copilot</span>{" "}
             · Claude ·{" "}
-            <span className="font-semibold text-[#456c52]">Codex</span>
+            <span className="theme-cv-accent font-semibold">Codex</span>
           </span>
           <strong>AI Integrations</strong>
           <span>
             AI SDK ·{" "}
-            <span className="font-semibold text-[#456c52]">OpenAI API</span>
+            <span className="theme-cv-accent font-semibold">OpenAI API</span>
           </span>
           <strong>Cloud and Deployment</strong>
           <span>
             DevOps ·{" "}
-            <span className="font-semibold text-[#456c52]">Vercel</span> ({" "}
-            <span className="font-semibold text-[#456c52]">Serverless</span>,{" "}
-            <span className="font-semibold text-[#456c52]">Blob Storage</span>{" "}
+            <span className="theme-cv-accent font-semibold">Vercel</span> ({" "}
+            <span className="theme-cv-accent font-semibold">Serverless</span>,{" "}
+            <span className="theme-cv-accent font-semibold">Blob Storage</span>{" "}
             and Redis) · DigitalOcean (.NET and MSSQL) · Supabase (Postgres)
           </span>
-          <p className="col-span-2 mt-1 text-[11px] text-[#625c58] italic">
+          <p className="theme-cv-muted col-span-2 mt-1 text-[11px] italic">
             Highlighted technologies were used to build and generate this
             resume.
           </p>
@@ -355,14 +355,14 @@ export default function Resume() {
           target="_blank"
           prefetch="auto"
           href={pdfHref as Route}
-          className="mx-auto flex w-fit items-center gap-2 rounded border border-[#d6b36a]/30 bg-[#1f261c] px-3 py-2 text-sm font-bold text-white transition-colors hover:border-[#d6b36a] hover:bg-[#283322]"
+          className="theme-panel-alt mx-auto flex w-fit items-center gap-2 rounded border theme-accent-border px-3 py-2 text-sm font-bold theme-accent-heading transition-colors"
           title="PDF version"
         >
           <DocumentIcon className="size-5" />
           PDF version
         </Link>
       </div>
-      <div className="bg-aside mx-auto grid overflow-hidden border-[#3f4c37] shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
+      <div className="theme-panel mx-auto grid overflow-hidden border theme-panel-border shadow-2xl shadow-black/25 [grid-template-areas:'main'] not-print:max-w-[calc(260px+64ch)] not-print:rounded-md not-print:border print:inset-0 print:min-h-dvh print:grid-flow-col print:grid-cols-[200px_1fr] print:grid-rows-[144px_1fr] print:shadow-none print:[grid-template-areas:'header_header'_'main_main']">
         <div className="hidden print:fixed print:top-0 print:right-0 print:left-56 print:block print:h-[2cm]" />
 
         <header className="bg-aside relative hidden items-center justify-center gap-x-4 px-6 [grid-area:header] print:col-span-2 print:flex">
@@ -372,40 +372,40 @@ export default function Resume() {
             loading="eager"
             priority
             className={cn(
-              "z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 border-[#f7f5ee] object-cover shadow-xl shadow-black/25",
+              "z-10 -mb-12 aspect-square size-36 self-center justify-self-center rounded-full border-4 theme-cv-header-border object-cover shadow-xl shadow-black/25",
             )}
           />
           <div className="flex flex-col justify-around gap-4 text-center">
             <section className="flex items-center justify-center gap-x-8 gap-y-0 pt-4">
               <ContactEntry
-                className="text-xs text-[#eef3df]/70"
+                className="theme-muted text-xs"
                 content="hello@nimrossum.com"
                 url="mailto:hello@nimrossum.com"
               />
               <ContactEntry
-                className="text-xs text-[#eef3df]/70"
+                className="theme-muted text-xs"
                 content="in/jonasnimrossum"
                 url="https://www.linkedin.com/in/jonasnimrossum/"
                 rel="me"
               />
               <ContactEntry
-                className="text-xs text-[#eef3df]/70"
+                className="theme-muted text-xs"
                 content="+45 52 25 13 37"
                 url="tel:+4552251337"
               />
             </section>
             <div className="mx-auto max-w-xl text-center lg:pr-8">
-              <h1 className="font-heading text-5xl leading-none font-bold tracking-tighter text-[#b8d5bc] uppercase">
+              <h1 className="font-heading theme-cv-header text-5xl leading-none font-bold tracking-tighter uppercase">
                 Jonas Nim Røssum
               </h1>
-              <p className="mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty text-[#b8d5bc]/82">
+              <p className="theme-cv-header mx-auto mt-2 max-w-68 text-base leading-snug font-normal tracking-wider text-pretty">
                 {headline}
               </p>
             </div>
           </div>
         </header>
 
-        <main className="relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t border-[#d8d5c7] bg-[#f7f5ee] p-4 text-[#20231d] [grid-area:main] marker:text-[#55745d] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
+        <main className="theme-cv-main relative mx-0 mt-0 grid w-auto grid-cols-1 gap-10 border-t p-4 [grid-area:main] sm:mx-4 sm:mt-4 sm:rounded-t-xl sm:p-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-x-8 lg:gap-y-4 lg:border-l print:m-3 print:grid-cols-2 print:gap-6 print:rounded-xl print:p-3 print:text-[15px] print:leading-snug">
           {sectionColumns.map((column, columnIndex) => (
             <div key={columnIndex} className="flex flex-col gap-10 print:gap-6">
               {column.map((sectionHeading) => {
@@ -430,7 +430,7 @@ export default function Resume() {
                             />
                           ) : null}
                           {/* <EntryTech tech={item.tech} /> */}
-                          <div className="text-xs leading-relaxed text-[#3f423b]">
+                          <div className="theme-cv-body text-xs leading-relaxed">
                             {item.description}
                           </div>
                         </div>
@@ -457,14 +457,14 @@ function SectionHeading({
   return (
     <h2
       className={cn(
-        "font-heading flex items-center gap-3 text-[#456c52]",
+        "font-heading theme-cv-heading flex items-center gap-3",
         className,
       )}
     >
       <div className="text-lg font-bold tracking-[0.14em] uppercase">
         {title}
       </div>
-      <div className="h-px flex-1 bg-[#c8c2ad]" />
+      <div className="theme-cv-heading-line h-px flex-1" />
     </h2>
   )
 }
@@ -493,12 +493,12 @@ function EntryHeading({
     >
       <div className="flex justify-between">
         <h3>
-          <span className="font-heading text-sm leading-tight font-bold text-[#456c52]">
+          <span className="font-heading theme-cv-heading text-sm leading-tight font-bold">
             {title}
           </span>
         </h3>
         {startDate ? (
-          <div className="pt-0.5 text-right text-xs font-semibold whitespace-nowrap text-[#8a7b55]">
+          <div className="theme-cv-accent pt-0.5 text-right text-xs font-semibold whitespace-nowrap">
             {startDate}{" "}
             {endDate !== startDate ? <>- {endDate ?? "Present"}</> : null}
           </div>
@@ -506,24 +506,24 @@ function EntryHeading({
       </div>
       {url ? (
         <a
-          className="group flex w-fit items-start justify-start gap-2 text-[#20231d] transition-colors hover:text-[#456c52]"
+          className="theme-cv-link group flex w-fit items-start justify-start gap-2 text-[var(--ink)] transition-colors"
           href={url}
           target="_blank"
           rel="noopener noreferrer"
         >
           <div className="flex flex-col">
-            <span className="mt-0.5 text-sm leading-snug text-[#6b675b]">
+            <span className="theme-cv-muted mt-0.5 text-sm leading-snug">
               {institution}
             </span>
           </div>
           <ArrowTopRightOnSquareIcon
-            className="mt-0.5 inline-flex size-4 shrink-0 text-[#8a7b55] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            className="theme-cv-accent mt-0.5 inline-flex size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             aria-hidden="true"
           />
         </a>
       ) : (
         <div className="flex flex-col">
-          <span className="mt-0.5 text-sm leading-snug text-[#6b675b]">
+          <span className="theme-cv-muted mt-0.5 text-sm leading-snug">
             {institution}
           </span>
         </div>
