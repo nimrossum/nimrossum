@@ -329,30 +329,45 @@ body:has(.cv-page) main {
 }
 
 .cv-actions {
-  padding-inline: 1rem;
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  padding: 2rem clamp(1.5rem, 5vw, 4.5rem) 1.5rem;
 }
 
 .cv-pdf-link {
-  color: var(--accent-muted);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
-  padding: 0.4rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  color: #f2f5f3;
+  background: #0b1720;
+  border: 1px solid #0b1720;
+  border-radius: 0.2rem;
+  padding: 0.55rem 0.8rem;
   font-size: 0.8rem;
   font-weight: 700;
-  transition: color 160ms ease, border-color 160ms ease;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
 .cv-pdf-link:hover,
 .cv-pdf-link:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: #f2f5f3;
+  background: #175ea8;
+  border-color: #175ea8;
 }
 
 .cv-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 150px;
-  gap: 2rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 180px);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: center;
   padding: clamp(2rem, 5vw, 4.5rem);
   background: var(--cv-ink);
   color: var(--cv-paper);
@@ -426,11 +441,13 @@ body:has(.cv-page) main {
 }
 
 .cv-portrait {
-  width: 150px;
-  aspect-ratio: 4 / 5;
+  width: min(100%, 180px);
+  aspect-ratio: 1 / 1;
+  justify-self: end;
   object-fit: cover;
   filter: grayscale(1) contrast(1.08);
   border: 1px solid color-mix(in srgb, var(--cv-paper) 45%, transparent);
+  box-shadow: 0.6rem 0.6rem 0 color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .cv-content {
@@ -510,8 +527,9 @@ body:has(.cv-page) main {
   position: relative;
   z-index: 1;
   display: flex;
+  min-height: 19px;
   height: fit-content;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.55rem;
   color: var(--cv-slate);
   text-decoration: none;
@@ -539,7 +557,7 @@ body:has(.cv-page) main {
 }
 
 .cv-signal-year {
-  padding-top: 0.17rem;
+  line-height: 1;
 }
 
 .cv-entry-list {
@@ -649,19 +667,20 @@ a.cv-entry-institution:focus-visible {
 
 @media (max-width: 700px) {
   .cv-hero {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .cv-portrait {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 76px;
-    height: 96px;
+    order: -1;
+    align-self: center;
+    width: 128px;
+    margin-bottom: 2.25rem;
   }
 
   .cv-hero-copy {
-    padding-right: 5rem;
+    padding-right: 0;
   }
 
   .cv-content {
@@ -675,7 +694,7 @@ a.cv-entry-institution:focus-visible {
 
 @media (max-width: 480px) {
   .cv-actions {
-    padding-inline: 0;
+    padding: 1rem 1.5rem;
   }
 
   .cv-hero,
@@ -688,10 +707,7 @@ a.cv-entry-institution:focus-visible {
   }
 
   .cv-portrait {
-    position: static;
-    width: 72px;
-    height: 90px;
-    margin-bottom: -0.5rem;
+    width: 112px;
   }
 
   .cv-entry-title-row {

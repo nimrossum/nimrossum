@@ -19,7 +19,7 @@ export function Nav() {
             prefetch="auto"
             className={`${linkClass} ${
               pathname === "/"
-                ? "theme-accent border-[var(--accent)]"
+                ? "theme-accent border-(--accent)"
                 : "border-transparent"
             }`}
             href="/"
@@ -36,7 +36,7 @@ export function Nav() {
                 ? "theme-accent border-[var(--accent)]"
                 : "border-transparent"
             }`}
-            href="/cv"
+            href="/"
           >
             CV
           </Link>
