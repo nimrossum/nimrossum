@@ -20,11 +20,11 @@ function getPdfCachePath(gitHistoryHash: string | undefined): string | null {
     return null
   }
 
-  return `cv/pdf/${gitHistoryHash}.pdf`
+  return `${gitHistoryHash}.pdf`
 }
 
 function getPdfSourceUrl(request: Request): string {
-  const sourceUrl = new URL("/cv", request.url)
+  const sourceUrl = new URL("/", request.url)
 
   try {
     const override = process.env.CV_PDF_SOURCE_URL
